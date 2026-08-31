@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://cq0v2esf2blvk"]
+
+[ext_resource type="Texture2D" uid="uid://7sknfy08sbp3" path="res://icon.svg" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://c88f8fcwywph7" path="res://scenes/car.tscn" id="2_0wfyh"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o5qli"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_0wfyh"]
+sky_material = SubResource("ProceduralSkyMaterial_o5qli")
+
+[sub_resource type="Environment" id="Environment_sugp2"]
+background_mode = 2
+sky = SubResource("Sky_0wfyh")
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_yf5fn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0wfyh"]
+albedo_texture = ExtResource("1_o5qli")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_g4v7s"]
+
+[node name="main" type="Node3D" unique_id=1967287430]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=745781433]
+environment = SubResource("Environment_sugp2")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=45772239]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="piso" type="StaticBody3D" parent="." unique_id=745877516]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="piso" unique_id=180809046]
+shape = SubResource("WorldBoundaryShape3D_yf5fn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="piso" unique_id=1495948770]
+material_override = SubResource("StandardMaterial3D_0wfyh")
+mesh = SubResource("PlaneMesh_g4v7s")
+
+[node name="spawn" type="Marker3D" parent="." unique_id=2147398056]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6927736, 2.364637)
+
+[node name="Car" parent="." unique_id=1187559516 instance=ExtResource("2_0wfyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74114084, 1.2439057, -2.5356941)
