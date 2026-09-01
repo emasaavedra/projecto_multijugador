@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://ogt3j5cg2hli"]
+
+[ext_resource type="Script" uid="uid://bwehmavytruq7" path="res://player/gato.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://b8epppymgn7nc" path="res://player/gatito_rigged.glb" id="2"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1"]
+radius = 0.275
+height = 0.55
+
+[node name="Gato" type="CharacterBody3D" unique_id=1077939918]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
+script = ExtResource("1")
+
+[node name="Modelo" parent="." unique_id=614055366 instance=ExtResource("2")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1896249594]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0)
+shape = SubResource("CapsuleShape3D_1")
+
+[node name="Label3D" type="Label3D" parent="." unique_id=66079457]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+billboard = 1
+text = "Gato"
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=762991943]
+
+[node name="SpringArm3D" type="SpringArm3D" parent="." unique_id=1101808331]
+transform = Transform3D(-1, 2.2626649e-08, -8.4443926e-08, 0, 0.96592593, 0.2588187, 8.742278e-08, 0.2588187, -0.96592593, 0, 1.2, 0)
+spring_length = 4.0
+
+[node name="Camera3D" type="Camera3D" parent="SpringArm3D" unique_id=1909171608]
