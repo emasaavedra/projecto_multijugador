@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://b8epppymgn7nc"
-path="res://.godot/imported/gatito_rigged.glb-54e791acd2b33f4a77935f3fcdd7c33b.scn"
+path="res://.godot/imported/gatito_rigged.glb-6134a466ab5c671e484f3a820440f6ad.scn"
 
 [deps]
 
-source_file="res://player/gatito_rigged.glb"
-dest_files=["res://.godot/imported/gatito_rigged.glb-54e791acd2b33f4a77935f3fcdd7c33b.scn"]
+source_file="res://cata/gatito_rigged.glb"
+dest_files=["res://.godot/imported/gatito_rigged.glb-6134a466ab5c671e484f3a820440f6ad.scn"]
 
 [params]
 
