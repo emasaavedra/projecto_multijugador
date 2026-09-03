@@ -33,7 +33,6 @@ spring_length = 4.0
 
 [node name="Camera3D" type="Camera3D" parent="SpringArm3D" unique_id=863613228]
 transform = Transform3D(1, 3.26344e-08, 6.3195174e-09, -3.3158027e-08, 0.9927176, 0.120464936, -2.3421904e-09, -0.120464936, 0.9927176, -2.1882886e-07, 1.5317167, 3.001832)
-current = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1378440033]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)

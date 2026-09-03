@@ -13,7 +13,7 @@ extends VehicleBody3D
 func _ready() -> void:
 	var player_data: Statics.PlayerData = Game.instance.get_player(get_multiplayer_authority())
 	label_3d.text = player_data.name
-	camera_3d.current = is_multiplayer_authority()
+	
 	
 
 func _input(event: InputEvent) -> void:
@@ -26,11 +26,9 @@ func setup(player_data: Statics.PlayerData) -> void:
 	camera_3d.current = is_multiplayer_authority()
 	
 func _physics_process(delta: float) -> void:
-	
 	var steer_input: float = input_synchronizer.steer_input
 	var force_input: float = input_synchronizer.force_input
 
-	
 	engine_force = force_input * engine_power
 	brake = brake_force if is_zero_approx(force_input) else 0.0
 	steering = move_toward(steering, -steer_input * steer_max, steer_acceleration * delta)
