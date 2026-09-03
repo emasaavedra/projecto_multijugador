@@ -4,10 +4,43 @@ extends VehicleBody3D
 @export var engine_power: float = 600.0
 @export var brake_force: float = 300.0
 
+@onready var gato: CharacterBody3D = $Gato
+@onready var label_3d: Label3D = $Label3D
+@onready var camera_3d: Camera3D = $SpringArm3D/Camera3D
+@onready var input_synchronizer: InputSynchronizer = $InputSynchronizer
+
+
+func _ready() -> void:
+	var player_data: Statics.PlayerData = Game.instance.get_player(get_multiplayer_authority())
+	label_3d.text = player_data.name
+	camera_3d.current = is_multiplayer_authority()
+	
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("test") and is_multiplayer_authority():
+		test.rpc()
+
+func setup(player_data: Statics.PlayerData) -> void:
+	label_3d.text = player_data.name
+	set_multiplayer_authority(player_data.id)
+	camera_3d.current = is_multiplayer_authority()
+	
 func _physics_process(delta: float) -> void:
-	var steer_input: float = Input.get_axis("left", "right")
-	var force_input: float = Input.get_axis("backward", "forward")
+	
+	var steer_input: float = input_synchronizer.steer_input
+	var force_input: float = input_synchronizer.force_input
+
 	
 	engine_force = force_input * engine_power
 	brake = brake_force if is_zero_approx(force_input) else 0.0
 	steering = move_toward(steering, -steer_input * steer_max, steer_acceleration * delta)
+	gato._actualizar_animacion(force_input, steer_max)
+	
+
+@rpc("any_peer", "call_local", "reliable")
+func test() -> void:
+	Debug.log(name, 10)
+
+@rpc("authority", "call_remote", "unreliable_ordered")
+func send_data(pos: Vector3) -> void:
+	global_position = pos

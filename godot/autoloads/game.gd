@@ -1,4 +1,3 @@
-class_name Game
 extends Node
 
 signal players_updated
@@ -181,5 +180,5 @@ func _update_window_scale() -> void:
 func _handle_node_added(node: Node) -> void:
 	if node.get_parent() == get_window():
 		# Scene has been changed
-		change_window_scale = node is MainMenu or node is LobbyHostScreen or \
+		change_window_scale = node is MainMenu or node is Lobby or \
 			node is LobbyJoinScreen or node is LobbyWaitingScreen or node is Credits

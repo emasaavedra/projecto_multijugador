@@ -1,4 +1,3 @@
-class_name LobbyHostScreen
 extends Control
 
 @onready var player_name: LineEdit = %PlayerName

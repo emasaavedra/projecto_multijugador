@@ -1,4 +1,3 @@
-class_name Lobby
 extends Node
 
 static var instance: Lobby

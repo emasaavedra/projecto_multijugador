@@ -12,12 +12,12 @@ role = 1
 [sub_resource type="Resource" id="Resource_ckjww"]
 script = ExtResource("2_xaonh")
 name = "client"
-role = 1
+role = 2
 
 [sub_resource type="Resource" id="Resource_a7hko"]
 script = ExtResource("2_xaonh")
 name = "client 2"
-role = 1
+role = 3
 
 [node name="Game" type="Node" unique_id=369504755]
 script = ExtResource("1_fmbhi")
