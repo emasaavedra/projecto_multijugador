@@ -109,3 +109,6 @@ text = "Gato"
 font_size = 60
 
 [node name="InputSynchronizer" parent="." unique_id=1132686555 instance=ExtResource("4_jtldb")]
+
+[node name="SyncTimer" type="Timer" parent="." unique_id=1468083329]
+wait_time = 0.1
