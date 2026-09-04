@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dj4gliatcty0a"]
+
+[ext_resource type="Texture2D" uid="uid://du6nusw8utcnq" path="res://assets/pensando.png" id="1_4gq7n"]
+[ext_resource type="Script" uid="uid://bw7nqxgr5fs18" path="res://scripts/power_up.gd" id="1_s8enn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
+size = Vector3(1.5, 1.5, 1.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_yf5fn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mkoic"]
+albedo_texture = ExtResource("1_4gq7n")
+
+[node name="Item" type="Area3D" unique_id=230272530]
+script = ExtResource("1_s8enn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1619572104]
+shape = SubResource("BoxShape3D_g4v7s")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=571762429]
+mesh = SubResource("BoxMesh_yf5fn")
+surface_material_override/0 = SubResource("StandardMaterial3D_mkoic")

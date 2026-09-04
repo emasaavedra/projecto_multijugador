@@ -1,4 +1,5 @@
 extends VehicleBody3D
+class_name Auto
 @export var steer_acceleration: float = 3.0
 @export var steer_max: float = 0.5
 @export var engine_power: float = 600.0
@@ -9,10 +10,6 @@ extends VehicleBody3D
 @onready var camera_3d: Camera3D = $SpringArm3D/Camera3D
 @onready var input_synchronizer: InputSynchronizer = $InputSynchronizer
 @onready var sync_timer: Timer = $SyncTimer
-
-#var brake: float
-#var engine_force: float
-#var steering: float
 
 func _ready() -> void:
 	var player_data: Statics.PlayerData = Game.instance.get_player(get_multiplayer_authority())
@@ -70,3 +67,7 @@ func send_data(pos: Vector3, rot: Vector3, engine: float, freno: float, steer_f:
 #	brake = freno
 #	engine_force = engine
 #	steering = steer_f
+
+@rpc("any_peer", "call_local")
+func picked_an_item() -> void:
+	Debug.log("he tomado el item :D", 10)

@@ -3,6 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://7sknfy08sbp3" path="res://icon.svg" id="1_78xei"]
 [ext_resource type="Script" uid="uid://r0oxtwmufdu4" path="res://scenes/main.gd" id="1_kl5mh"]
 [ext_resource type="PackedScene" uid="uid://c88f8fcwywph7" path="res://scenes/car.tscn" id="2_amh4o"]
+[ext_resource type="PackedScene" uid="uid://dj4gliatcty0a" path="res://scenes/item.tscn" id="4_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://c6t8uj8kmippq" path="res://scenes/pista.tscn" id="5_tbgi4"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_amh4o"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -40,6 +42,7 @@ shape = SubResource("WorldBoundaryShape3D_g4v7s")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/CollisionShape3D" unique_id=1995590621]
 transform = Transform3D(40, 0, 0, 0, 40, 0, 0, 0, 40, 0, 0, 0)
+visible = false
 material_override = SubResource("StandardMaterial3D_amh4o")
 mesh = SubResource("PlaneMesh_g4v7s")
 
@@ -55,3 +58,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 16.14882)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.927802, 0, 0)
 
 [node name="Players" type="Node3D" parent="." unique_id=407803051]
+
+[node name="Items" type="Node3D" parent="." unique_id=2144249134]
+
+[node name="Item" parent="." unique_id=230272530 instance=ExtResource("4_jyhfs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.62357, 1.0768249, 0)
+
+[node name="pista" parent="." unique_id=916789388 instance=ExtResource("5_tbgi4")]
