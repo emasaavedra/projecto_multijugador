@@ -4,7 +4,11 @@ class_name Auto
 @export var steer_max: float = 0.5
 @export var engine_power: float = 600.0
 @export var brake_force: float = 300.0
+@export var mouse_sensitivity: float = 0.01
+@export var camera_min_pitch: float = -20
+@export var camera_max_pitch: float = 30
 
+@onready var spring_arm_3d: SpringArm3D = $SpringArm3D
 @onready var gato: CharacterBody3D = $Gato
 @onready var label_3d: Label3D = $Label3D
 @onready var camera_3d: Camera3D = $SpringArm3D/Camera3D
@@ -42,7 +46,16 @@ func _physics_process(delta: float) -> void:
 	gato._actualizar_animacion(force_input, steer_max)
 	
 	send_data.rpc(global_position, global_rotation, engine_force, brake, steering)
-	
+
+func _unhandled_input(event: InputEvent) -> void:
+	if not is_multiplayer_authority():
+		return
+	var mouse_motion: InputEventMouseMotion = event as InputEventMouseMotion
+	if mouse_motion:
+		spring_arm_3d.rotation.y -= mouse_motion.relative.x * mouse_sensitivity
+		camera_3d.rotation.x = clamp(camera_3d.rotation.x - mouse_motion.relative.y * mouse_sensitivity,
+									deg_to_rad(camera_min_pitch),
+									deg_to_rad(camera_max_pitch))
 
 @rpc("any_peer", "call_local", "reliable")
 func test() -> void:
