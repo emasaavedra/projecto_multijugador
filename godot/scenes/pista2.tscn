@@ -1,0 +1,109 @@
+[gd_scene format=3 uid="uid://d4kflmuw60mep"]
+
+[ext_resource type="PackedScene" uid="uid://c88f8fcwywph7" path="res://scenes/car.tscn" id="1_n6oh2"]
+
+[sub_resource type="Curve3D" id="Curve3D_iqetv"]
+closed = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.7202594, 0, -1.1617792, -65.4, 0, 65.5, 65.4, 0, -65.5, 135.80426, 0, -115.58988, -106.5, 0, 29.9, 106.5, 0, -29.9, 337.6878, 0, -165.6141, -24.1, 0, -46.600002, 24.1, 0, 46.600002, 584.2359, 0, -137.02884, 0, 0, 0, 0, 0, 0, 634.2601, 0, -38.76693, -3, 0, 1.8000001, 3, 0, -1.8000001, 641, 0, 37, 6, 0, -73.6, -6, 0, 73.6, 643.19293, 0, 132.74478, 0, 0, 0, 0, 0, 0, 780.7596, 0, 157.7569, 0, 0, 0, 0, 0, 0, 950.4847, 0, 104.15945, -65.200005, 0, -2.2, 65.200005, 0, 2.2, 1048.7466, 0, 70.214485, 0, 0, 0, 0, 0, 0, 1202.3926, 0, 252.44562, 28.7, 0, -69.200005, -28.7, 0, 69.200005, 1168.4475, 0, 341.7746, 55.8, 0, -18.1, -55.8, 0, 18.1, 973.71027, 0, 490.06076, 42, 0, 0.1, -42, 0, -0.1, 718.2293, 0, 504.3534, 46.9, 0, 18.2, -46.9, 0, -18.2, 496.69342, 0, 509.7131, 0, 0, 0, 0, 0, 0, 425.2303, 0, 415.02438, 21.2, 0, 36, -21.2, 0, -36, 376.9926, 0, 282.81744, 24.800001, 0, -26.800001, -24.800001, 0, 26.800001, 268.01117, 0, 282.81744, 32.2, 0, -41.2, -32.2, 0, 41.2, 160.81647, 0, 407.87805, 38.8, 0, -5, -38.8, 0, 5, 32.18267, 0, 465.04858, 43.100002, 0, 22.5, -43.100002, 0, -22.5, -212.5788, 0, 468.62173, 0, 0, 0, 0, 0, 0, -257.24323, 0, 427.53046, 16.1, 0, 45, -16.1, 0, -45, -385.877, 0, 327.48196, 29.9, 0, 65.1, -29.9, 0, -65.1, -487.7121, 0, 216.71396, 87.9, 0, -66.200005, -87.9, 0, 66.200005, -562.7484, 0, 132.74478, 0, 0, 0, 0, 0, 0, -716.3943, 0, 66.64132, 0, 0, 0, 0, 0, 0, -775.35144, 0, 36.269432, 0, 0, 0, 0, 0, 0, -903.98517, 0, -10.181667, 66.5, 0, 41.3, -66.5, 0, -41.3, -1032.6189, 0, -99.51066, 0, 0, 0, 0, 0, 0, -1018.32623, 0, -244.22363, -60.7, 0, 1.9, 60.7, 0, -1.9, -941.50336, 0, -322.83316, -56.9, 0, -14, 56.9, 0, 14, -705.6748, 0, -376.43057, 0, 0, 0, 0, 0, 0, -564.53503, 0, -383.57687, -18.300001, 0, -47.2, 18.300001, 0, 47.2, -439.47443, 0, -369.28424, 0, 0, 0, 0, 0, 0, -400.16974, 0, -304.96735, 0, 0, 0, 0, 0, 0, -407.31598, 0, -140.60199, -44.600002, 0, -10.5, 44.600002, 0, 10.5, -371.5844, 0, -78.07168, 0, 0, 0, 0, 0, 0, -266.1761, 0, -45.913254, 0, 0, 0, 0, 0, 0, -167.91425, 0, -11.968246, -48, 0, -21.9, 48, 0, 21.9, -76.79865, 0, -22.687721),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 40
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wrjgm"]
+shading_mode = 0
+albedo_color = Color(0.26942685, 0.21611466, 0.07839153, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n6oh2"]
+albedo_color = Color(0, 0.047058824, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a0hoc"]
+albedo_color = Color(0.09803922, 0.09803922, 0.09803922, 1)
+metallic_texture_channel = 4
+roughness_texture_channel = 4
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_yf5fn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hdttc"]
+albedo_color = Color(0, 0.25490198, 0, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_yf5fn"]
+material = SubResource("StandardMaterial3D_hdttc")
+size = Vector2(2700, 1500)
+
+[node name="Pista2" type="Node3D" unique_id=1002110048]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1530317833]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+light_energy = 1.225
+shadow_enabled = true
+
+[node name="pista_path3d" type="Path3D" parent="." unique_id=519327122]
+curve = SubResource("Curve3D_iqetv")
+
+[node name="pista" type="CSGCombiner3D" parent="." unique_id=2032207375]
+use_collision = true
+
+[node name="poligono_tunel" type="CSGPolygon3D" parent="pista" unique_id=996295629]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 188, 14, -159)
+polygon = PackedVector2Array(20.427902, 9.330215, 47.47737, 7.6741333, 96.33203, 10.43428, 149.6029, 22.578934, 175.82434, 29.47931, 178.58447, 20.37082, 166.71582, -9.714813, 50, -23, 13, -15, 18.495789, -4.194504)
+depth = 18.92
+smooth_faces = true
+material = SubResource("StandardMaterial3D_wrjgm")
+
+[node name="AreaLight3D" type="OmniLight3D" parent="pista/poligono_tunel" unique_id=1313588710]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 116, -1, -4)
+omni_range = 24.312
+omni_attenuation = 0.296
+
+[node name="AreaLight3D2" type="OmniLight3D" parent="pista/poligono_tunel" unique_id=1611692809]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 148, 7, -3.999999)
+omni_range = 24.312
+omni_attenuation = 0.296
+
+[node name="AreaLight3D3" type="OmniLight3D" parent="pista/poligono_tunel" unique_id=1219823748]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 66, -4, -4)
+omni_range = 24.312
+omni_attenuation = 0.296
+
+[node name="limpiador_en_forma_de_tunel" type="CSGPolygon3D" parent="pista" unique_id=603764041]
+operation = 2
+polygon = PackedVector2Array(-5, 0, -5, 7, -4.9, 7.8, -4.6, 8.6, -4, 9.3, -3.2, 9.8, -2.2, 10.2, -1.1, 10.5, 0, 10.6, 1.1, 10.5, 2.2, 10.2, 3.2, 9.8, 4, 9.3, 4.6, 8.6, 4.9, 7.8, 5, 7, 5, 0)
+mode = 2
+path_node = NodePath("../../pista_path3d")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = true
+material = SubResource("StandardMaterial3D_n6oh2")
+
+[node name="piso_de_pista" type="CSGPolygon3D" parent="pista" unique_id=1839177446]
+polygon = PackedVector2Array(-5, 0, -5, 0.05, 5, 0.05, 5, 0)
+mode = 2
+path_node = NodePath("../../pista_path3d")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = false
+path_u_distance = 1.0
+path_joined = false
+material = SubResource("StandardMaterial3D_a0hoc")
+
+[node name="Car" parent="." unique_id=1187559516 instance=ExtResource("1_n6oh2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, -11)
+
+[node name="world_floor" type="StaticBody3D" parent="." unique_id=1470062903]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="world_floor" unique_id=1288448560]
+shape = SubResource("WorldBoundaryShape3D_yf5fn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="world_floor" unique_id=986452724]
+mesh = SubResource("PlaneMesh_yf5fn")
