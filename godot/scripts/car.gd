@@ -7,6 +7,7 @@ class_name Auto
 @export var mouse_sensitivity: float = 0.01
 @export var camera_min_pitch: float = -20
 @export var camera_max_pitch: float = 30
+@export var laps: int = 0
 
 @onready var spring_arm_3d: SpringArm3D = $SpringArm3D
 @onready var gato: CharacterBody3D = $Gato

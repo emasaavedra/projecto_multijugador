@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://c5b5hu350sg1m"]
+
+[ext_resource type="Script" uid="uid://cbv7mqr7yfhxn" path="res://scripts/meta.gd" id="1_keyex"]
+[ext_resource type="PackedScene" uid="uid://cbiw63si01kyu" path="res://assets/finish_line.glb" id="1_omeyu"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yf5fn"]
+size = Vector3(1.035, 4.295, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
+size = Vector3(13.06, 3.905, 0.485)
+
+[node name="Meta" type="Node3D" unique_id=1684323150]
+script = ExtResource("1_keyex")
+
+[node name="Sketchfab_Scene" parent="." unique_id=559412612 instance=ExtResource("1_omeyu")]
+
+[node name="Left Pole" type="StaticBody3D" parent="Sketchfab_Scene/Sketchfab_model/bf0bdf6dbd1e48fb8e27044e64b28c64_fbx/RootNode/pole_001" parent_id_path=PackedInt32Array(559412612, 763675691) index="1" unique_id=2038924643]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.049703, 2.0401325, -4.530004e-16)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_Scene/Sketchfab_model/bf0bdf6dbd1e48fb8e27044e64b28c64_fbx/RootNode/pole_001/Left Pole" unique_id=728249047]
+shape = SubResource("BoxShape3D_yf5fn")
+
+[node name="Right Pole" type="StaticBody3D" parent="Sketchfab_Scene/Sketchfab_model/bf0bdf6dbd1e48fb8e27044e64b28c64_fbx/RootNode/pole_001" parent_id_path=PackedInt32Array(559412612, 763675691) index="2" unique_id=1719691589]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.0669575, 2.0275292, -4.5020193e-16)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_Scene/Sketchfab_model/bf0bdf6dbd1e48fb8e27044e64b28c64_fbx/RootNode/pole_001/Right Pole" unique_id=1140544074]
+shape = SubResource("BoxShape3D_yf5fn")
+
+[node name="Front" type="Area3D" parent="." unique_id=348581015]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Front" unique_id=615653755]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9587364, 0.2600242)
+shape = SubResource("BoxShape3D_g4v7s")
+debug_color = Color(0, 0.6, 0.69803923, 1)
+
+[node name="Back" type="Area3D" parent="." unique_id=1173237239]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Back" unique_id=1830775886]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.959, -0.26)
+shape = SubResource("BoxShape3D_g4v7s")
+debug_color = Color(0, 0.6, 0.69803923, 1)
+
+[connection signal="body_entered" from="Front" to="." method="_on_front_body_entered"]
+[connection signal="body_entered" from="Back" to="." method="_on_back_body_entered"]
+
+[editable path="Sketchfab_Scene"]
