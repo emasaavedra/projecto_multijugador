@@ -22,6 +22,18 @@ albedo_color = Color(0.09803922, 0.09803922, 0.09803922, 1)
 metallic_texture_channel = 4
 roughness_texture_channel = 4
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yf5fn"]
+transparency = 1
+blend_mode = 4
+albedo_color = Color(0.5019608, 0, 0, 1)
+roughness = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g4v7s"]
+transparency = 1
+disable_ambient_light = true
+albedo_color = Color(0.5019608, 0, 0, 1)
+roughness = 0.5
+
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_yf5fn"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hdttc"]
@@ -96,6 +108,36 @@ path_continuous_u = false
 path_u_distance = 1.0
 path_joined = false
 material = SubResource("StandardMaterial3D_a0hoc")
+
+[node name="barrera_izquierda" type="CSGPolygon3D" parent="pista" unique_id=2061752576]
+polygon = PackedVector2Array(-5.6, 0, -5.6, 1.2, -5.4, 1.2, -5.4, 0)
+mode = 2
+path_node = NodePath("../../pista_path3d")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = SubResource("StandardMaterial3D_yf5fn")
+
+[node name="barrera_derecha" type="CSGPolygon3D" parent="pista" unique_id=284294344]
+polygon = PackedVector2Array(5.4, 0, 5.4, 1.2, 5.6, 1.2, 5.6, 0)
+mode = 2
+path_node = NodePath("../../pista_path3d")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = SubResource("StandardMaterial3D_g4v7s")
 
 [node name="Car" parent="." unique_id=1187559516 instance=ExtResource("1_n6oh2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, -11)
