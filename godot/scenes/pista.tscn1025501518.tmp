@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" uid="uid://to8ieuj5q78w" path="res://scripts/carretera.gd" id="1_251bd"]
 [ext_resource type="Script" uid="uid://utq7fp2h2puh" path="res://scripts/colisionador_lado_izq.gd" id="2_vj6po"]
+[ext_resource type="PackedScene" uid="uid://c5b5hu350sg1m" path="res://scenes/meta.tscn" id="3_ft10e"]
+[ext_resource type="Script" uid="uid://dqhbc1i6stmrb" path="res://scripts/checkpoints.gd" id="4_erodb"]
+[ext_resource type="PackedScene" uid="uid://b4amjel6rx8he" path="res://scenes/checkpoint.tscn" id="5_erodb"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_g4v7s"]
 
@@ -62,3 +65,20 @@ segmentos = 100
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0)
 shape = SubResource("ConcavePolygonShape3D_12jx3")
 script = ExtResource("2_vj6po")
+
+[node name="Meta" parent="." unique_id=1684323150 instance=ExtResource("3_ft10e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.255066, -1.8647554, 18.292023)
+
+[node name="Checkpoints" type="Node3D" parent="." unique_id=563884740]
+script = ExtResource("4_erodb")
+cant_markers = null
+max_laps = null
+
+[node name="Checkpoint" parent="Checkpoints" unique_id=1277283102 instance=ExtResource("5_erodb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.20819, 0, 22)
+
+[node name="Checkpoint2" parent="Checkpoints" unique_id=994006779 instance=ExtResource("5_erodb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.560669, 0, 13)
+
+[node name="Checkpoint3" parent="Checkpoints" unique_id=1997380982 instance=ExtResource("5_erodb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.412567, 0, 4.1114326)

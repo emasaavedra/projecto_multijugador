@@ -4,6 +4,7 @@ extends Node3D
 @onready var spawn_points: Node3D = $SpawnPoints
 @onready var players: Node3D = $Players
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	for i: int in Game.players.size():

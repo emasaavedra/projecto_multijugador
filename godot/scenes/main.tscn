@@ -5,6 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://c88f8fcwywph7" path="res://scenes/car.tscn" id="2_amh4o"]
 [ext_resource type="PackedScene" uid="uid://dj4gliatcty0a" path="res://scenes/item.tscn" id="4_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://c6t8uj8kmippq" path="res://scenes/pista.tscn" id="5_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://c5b5hu350sg1m" path="res://scenes/meta.tscn" id="6_tipki"]
+[ext_resource type="Script" uid="uid://dqhbc1i6stmrb" path="res://scripts/checkpoints.gd" id="7_85g3d"]
+[ext_resource type="PackedScene" uid="uid://b4amjel6rx8he" path="res://scenes/checkpoint.tscn" id="8_choun"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_amh4o"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -49,13 +52,26 @@ mesh = SubResource("PlaneMesh_g4v7s")
 [node name="SpawnPoints" type="Node3D" parent="." unique_id=399215560]
 
 [node name="Marker3D" type="Marker3D" parent="SpawnPoints" unique_id=1541279784]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.00861, 0, 0)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.005590439, 0, -0.004527092)
 
 [node name="Marker3D2" type="Marker3D" parent="SpawnPoints" unique_id=117459076]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 16.14882)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.787918, 0, -13.86717)
 
 [node name="Marker3D3" type="Marker3D" parent="SpawnPoints" unique_id=1859845975]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.927802, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.793625, 0, -13.787231)
+
+[node name="Checkpoint Markers" type="Node3D" parent="." unique_id=1821425393]
+script = ExtResource("7_85g3d")
+checkpoint_scene = ExtResource("8_choun")
+
+[node name="Marker3D" type="Marker3D" parent="Checkpoint Markers" unique_id=497154075]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.027601242, 0, 7.9794817)
+
+[node name="Marker3D2" type="Marker3D" parent="Checkpoint Markers" unique_id=1648614005]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07367706, 0, 16.033808)
+
+[node name="Marker3D3" type="Marker3D" parent="Checkpoint Markers" unique_id=51989581]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.005259514, 0, 23.94552)
 
 [node name="Players" type="Node3D" parent="." unique_id=407803051]
 
@@ -65,3 +81,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.927802, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.62357, 1.0768249, 0)
 
 [node name="pista" parent="." unique_id=916789388 instance=ExtResource("5_tbgi4")]
+
+[node name="Meta" parent="." unique_id=1684323150 instance=ExtResource("6_tipki")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0.04237175, -1.8647554, 31.52172)
+
+[node name="Checkpoints" type="Node3D" parent="." unique_id=1352871862]

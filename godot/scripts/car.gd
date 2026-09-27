@@ -7,7 +7,8 @@ class_name Auto
 @export var mouse_sensitivity: float = 0.01
 @export var camera_min_pitch: float = -20
 @export var camera_max_pitch: float = 30
-@export var laps: int = 0
+@export var checkpoints: int = 0
+@export var last_checkpoint: int
 
 @onready var spring_arm_3d: SpringArm3D = $SpringArm3D
 @onready var gato: CharacterBody3D = $Gato
@@ -85,3 +86,7 @@ func send_data(pos: Vector3, rot: Vector3, engine: float, freno: float, steer_f:
 @rpc("any_peer", "call_local")
 func picked_an_item() -> void:
 	Debug.log("he tomado el item :D", 10)
+
+func checkpoint_reached(index: int) -> void:
+	last_checkpoint = index
+	checkpoints += 1
