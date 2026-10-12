@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://d4kflmuw60mep"]
 
 [ext_resource type="PackedScene" uid="uid://c88f8fcwywph7" path="res://scenes/car.tscn" id="1_n6oh2"]
+[ext_resource type="Texture2D" uid="uid://d3burcgdoxy7k" path="res://rocky_terrain_02_diff_2k.png" id="2_1fh8e"]
+[ext_resource type="Texture2D" uid="uid://p4i2imxr7gn5" path="res://rocky_terrain_02_nor_gl_2k.png" id="3_meohf"]
+[ext_resource type="Texture2D" uid="uid://cb8ridxrrsts4" path="res://rocky_terrain_02_rough_2k.png" id="4_a0hoc"]
 
 [sub_resource type="Curve3D" id="Curve3D_iqetv"]
 closed = true
@@ -37,7 +40,12 @@ roughness = 0.5
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_yf5fn"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hdttc"]
-albedo_color = Color(0, 0.25490198, 0, 1)
+albedo_texture = ExtResource("2_1fh8e")
+roughness_texture = ExtResource("4_a0hoc")
+normal_enabled = true
+normal_texture = ExtResource("3_meohf")
+uv1_scale = Vector3(100, 100, 100)
+uv1_triplanar_sharpness = 0.050765835
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_yf5fn"]
 material = SubResource("StandardMaterial3D_hdttc")
