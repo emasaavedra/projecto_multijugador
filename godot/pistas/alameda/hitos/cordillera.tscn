@@ -1,0 +1,346 @@
+[gd_scene format=3]
+
+[sub_resource type="StandardMaterial3D" id="Mat_0"]
+albedo_color = Color(0.45, 0.42, 0.47, 1)
+
+[sub_resource type="StandardMaterial3D" id="Mat_1"]
+albedo_color = Color(0.95, 0.96, 0.98, 1)
+
+[sub_resource type="CylinderMesh" id="Mesh_0"]
+material = SubResource("Mat_0")
+top_radius = 0
+bottom_radius = 225.0934
+height = 146.5193
+radial_segments = 7
+rings = 1
+
+[sub_resource type="CylinderMesh" id="Mesh_1"]
+material = SubResource("Mat_1")
+top_radius = 0
+bottom_radius = 72.0299
+height = 46.8862
+radial_segments = 7
+rings = 1
+
+[sub_resource type="CylinderMesh" id="Mesh_2"]
+material = SubResource("Mat_0")
+top_radius = 0
+bottom_radius = 210.7436
+height = 143.3746
+radial_segments = 7
+rings = 1
+
+[sub_resource type="CylinderMesh" id="Mesh_3"]
+material = SubResource("Mat_1")
+top_radius = 0
+bottom_radius = 67.4379
+height = 45.8799
+radial_segments = 7
+rings = 1
+
+[sub_resource type="CylinderMesh" id="Mesh_4"]
+material = SubResource("Mat_0")
+top_radius = 0
+bottom_radius = 202.4519
+height = 214.4167
+radial_segments = 7
+rings = 1
+
+[sub_resource type="CylinderMesh" id="Mesh_5"]
+material = SubResource("Mat_1")
+top_radius = 0
+bottom_radius = 64.7846
+height = 68.6133
+radial_segments = 7
+rings = 1
+
+[sub_resource type="CylinderMesh" id="Mesh_6"]
+material = SubResource("Mat_0")
+top_radius = 0
+bottom_radius = 254.7709
+height = 191.9393
+radial_segments = 7
+rings = 1
+
+[sub_resource type="CylinderMesh" id="Mesh_7"]
+material = SubResource("Mat_1")
+top_radius = 0
+bottom_radius = 81.5267
+height = 61.4206
+radial_segments = 7
+rings = 1
+
+[sub_resource type="CylinderMesh" id="Mesh_8"]
+material = SubResource("Mat_0")
+top_radius = 0
+bottom_radius = 245.8468
+height = 166.0648
+radial_segments = 7
+rings = 1
+
+[sub_resource type="CylinderMesh" id="Mesh_9"]
+material = SubResource("Mat_1")
+top_radius = 0
+bottom_radius = 78.671
+height = 53.1407
+radial_segments = 7
+rings = 1
+
+[sub_resource type="CylinderMesh" id="Mesh_10"]
+material = SubResource("Mat_0")
+top_radius = 0
+bottom_radius = 241.6126
+height = 156.2654
+radial_segments = 7
+rings = 1
+
+[sub_resource type="CylinderMesh" id="Mesh_11"]
+material = SubResource("Mat_1")
+top_radius = 0
+bottom_radius = 77.316
+height = 50.0049
+radial_segments = 7
+rings = 1
+
+[sub_resource type="CylinderMesh" id="Mesh_12"]
+material = SubResource("Mat_0")
+top_radius = 0
+bottom_radius = 214.7744
+height = 145.651
+radial_segments = 7
+rings = 1
+
+[sub_resource type="CylinderMesh" id="Mesh_13"]
+material = SubResource("Mat_1")
+top_radius = 0
+bottom_radius = 68.7278
+height = 46.6083
+radial_segments = 7
+rings = 1
+
+[sub_resource type="CylinderMesh" id="Mesh_14"]
+material = SubResource("Mat_0")
+top_radius = 0
+bottom_radius = 202.7592
+height = 168.2732
+radial_segments = 7
+rings = 1
+
+[sub_resource type="CylinderMesh" id="Mesh_15"]
+material = SubResource("Mat_1")
+top_radius = 0
+bottom_radius = 64.883
+height = 53.8474
+radial_segments = 7
+rings = 1
+
+[sub_resource type="CylinderMesh" id="Mesh_16"]
+material = SubResource("Mat_0")
+top_radius = 0
+bottom_radius = 239.4379
+height = 202.9095
+radial_segments = 7
+rings = 1
+
+[sub_resource type="CylinderMesh" id="Mesh_17"]
+material = SubResource("Mat_1")
+top_radius = 0
+bottom_radius = 76.6201
+height = 64.931
+radial_segments = 7
+rings = 1
+
+[sub_resource type="CylinderMesh" id="Mesh_18"]
+material = SubResource("Mat_0")
+top_radius = 0
+bottom_radius = 247.5137
+height = 205.6501
+radial_segments = 7
+rings = 1
+
+[sub_resource type="CylinderMesh" id="Mesh_19"]
+material = SubResource("Mat_1")
+top_radius = 0
+bottom_radius = 79.2044
+height = 65.808
+radial_segments = 7
+rings = 1
+
+[sub_resource type="CylinderMesh" id="Mesh_20"]
+material = SubResource("Mat_0")
+top_radius = 0
+bottom_radius = 201.8123
+height = 208.1427
+radial_segments = 7
+rings = 1
+
+[sub_resource type="CylinderMesh" id="Mesh_21"]
+material = SubResource("Mat_1")
+top_radius = 0
+bottom_radius = 64.5799
+height = 66.6057
+radial_segments = 7
+rings = 1
+
+[sub_resource type="CylinderMesh" id="Mesh_22"]
+material = SubResource("Mat_0")
+top_radius = 0
+bottom_radius = 226.8216
+height = 208.8114
+radial_segments = 7
+rings = 1
+
+[sub_resource type="CylinderMesh" id="Mesh_23"]
+material = SubResource("Mat_1")
+top_radius = 0
+bottom_radius = 72.5829
+height = 66.8196
+radial_segments = 7
+rings = 1
+
+[sub_resource type="CylinderMesh" id="Mesh_24"]
+material = SubResource("Mat_0")
+top_radius = 0
+bottom_radius = 229.5295
+height = 193.4933
+radial_segments = 7
+rings = 1
+
+[sub_resource type="CylinderMesh" id="Mesh_25"]
+material = SubResource("Mat_1")
+top_radius = 0
+bottom_radius = 73.4495
+height = 61.9179
+radial_segments = 7
+rings = 1
+
+[sub_resource type="CylinderMesh" id="Mesh_26"]
+material = SubResource("Mat_0")
+top_radius = 0
+bottom_radius = 254.4681
+height = 182.6689
+radial_segments = 7
+rings = 1
+
+[sub_resource type="CylinderMesh" id="Mesh_27"]
+material = SubResource("Mat_1")
+top_radius = 0
+bottom_radius = 81.4298
+height = 58.454
+radial_segments = 7
+rings = 1
+
+[node name="Cordillera" type="Node3D"]
+metadata/radio = 0
+
+[node name="Cerro0" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.8466, 0, 0.5322, 0, 1, 0, -0.5322, 0, 0.8466, -38.8811, 73.2596, -914.0934)
+mesh = SubResource("Mesh_0")
+
+[node name="Nieve0" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.8466, 0, 0.5322, 0, 1, 0, -0.5322, 0, 0.8466, -38.8811, 123.5762, -914.0934)
+mesh = SubResource("Mesh_1")
+
+[node name="Cerro1" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.8987, 0, 0.4387, 0, 1, 0, -0.4387, 0, 0.8987, -51.8802, 71.6873, -770.7449)
+mesh = SubResource("Mesh_2")
+
+[node name="Nieve1" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.8987, 0, 0.4387, 0, 1, 0, -0.4387, 0, 0.8987, -51.8802, 120.9347, -770.7449)
+mesh = SubResource("Mesh_3")
+
+[node name="Cerro2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.9916, 0, 0.1293, 0, 1, 0, -0.1293, 0, 0.9916, -47.3002, 107.2083, -654.4116)
+mesh = SubResource("Mesh_4")
+
+[node name="Nieve2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.9916, 0, 0.1293, 0, 1, 0, -0.1293, 0, 0.9916, -47.3002, 180.61, -654.4116)
+mesh = SubResource("Mesh_5")
+
+[node name="Cerro3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.915, 0, 0.4036, 0, 1, 0, -0.4036, 0, 0.915, 27.8407, 95.9696, -502.1409)
+mesh = SubResource("Mesh_6")
+
+[node name="Nieve3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.915, 0, 0.4036, 0, 1, 0, -0.4036, 0, 0.915, 27.8407, 161.729, -502.1409)
+mesh = SubResource("Mesh_7")
+
+[node name="Cerro4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.9886, 0, 0.1505, 0, 1, 0, -0.1505, 0, 0.9886, -53.4784, 83.0324, -301.8996)
+mesh = SubResource("Mesh_8")
+
+[node name="Nieve4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.9886, 0, 0.1505, 0, 1, 0, -0.1505, 0, 0.9886, -53.4784, 139.9945, -301.8996)
+mesh = SubResource("Mesh_9")
+
+[node name="Cerro5" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.8202, 0, 0.5721, 0, 1, 0, -0.5721, 0, 0.8202, -16.8125, 78.1327, -230.5766)
+mesh = SubResource("Mesh_10")
+
+[node name="Nieve5" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.8202, 0, 0.5721, 0, 1, 0, -0.5721, 0, 0.8202, -16.8125, 131.7629, -230.5766)
+mesh = SubResource("Mesh_11")
+
+[node name="Cerro6" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.9981, 0, 0.0624, 0, 1, 0, -0.0624, 0, 0.9981, -7.8643, 72.8255, -48.8869)
+mesh = SubResource("Mesh_12")
+
+[node name="Nieve6" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.9981, 0, 0.0624, 0, 1, 0, -0.0624, 0, 0.9981, -7.8643, 122.8468, -48.8869)
+mesh = SubResource("Mesh_13")
+
+[node name="Cerro7" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.8178, 0, 0.5755, 0, 1, 0, -0.5755, 0, 0.8178, 35.256, 84.1366, 56.4767)
+mesh = SubResource("Mesh_14")
+
+[node name="Nieve7" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.8178, 0, 0.5755, 0, 1, 0, -0.5755, 0, 0.8178, 35.256, 141.8495, 56.4767)
+mesh = SubResource("Mesh_15")
+
+[node name="Cerro8" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.9675, 0, 0.2528, 0, 1, 0, -0.2528, 0, 0.9675, -18.0326, 101.4547, 216.2548)
+mesh = SubResource("Mesh_16")
+
+[node name="Nieve8" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.9675, 0, 0.2528, 0, 1, 0, -0.2528, 0, 0.9675, -18.0326, 170.944, 216.2548)
+mesh = SubResource("Mesh_17")
+
+[node name="Cerro9" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.9549, 0, 0.297, 0, 1, 0, -0.297, 0, 0.9549, 13.5275, 102.825, 365.9539)
+mesh = SubResource("Mesh_18")
+
+[node name="Nieve9" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.9549, 0, 0.297, 0, 1, 0, -0.297, 0, 0.9549, 13.5275, 173.2461, 365.9539)
+mesh = SubResource("Mesh_19")
+
+[node name="Cerro10" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.9874, 0, 0.1585, 0, 1, 0, -0.1585, 0, 0.9874, -43.4708, 104.0713, 538.414)
+mesh = SubResource("Mesh_20")
+
+[node name="Nieve10" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.9874, 0, 0.1585, 0, 1, 0, -0.1585, 0, 0.9874, -43.4708, 175.3399, 538.414)
+mesh = SubResource("Mesh_21")
+
+[node name="Cerro11" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.8253, 0, 0.5647, 0, 1, 0, -0.5647, 0, 0.8253, -54.511, 104.4057, 639.117)
+mesh = SubResource("Mesh_22")
+
+[node name="Nieve11" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.8253, 0, 0.5647, 0, 1, 0, -0.5647, 0, 0.8253, -54.511, 175.9016, 639.117)
+mesh = SubResource("Mesh_23")
+
+[node name="Cerro12" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.8212, 0, 0.5706, 0, 1, 0, -0.5706, 0, 0.8212, -16.0753, 96.7466, 810.0382)
+mesh = SubResource("Mesh_24")
+
+[node name="Nieve12" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.8212, 0, 0.5706, 0, 1, 0, -0.5706, 0, 0.8212, -16.0753, 163.0344, 810.0382)
+mesh = SubResource("Mesh_25")
+
+[node name="Cerro13" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.7677, 0, 0.6408, 0, 1, 0, -0.6408, 0, 0.7677, 57.5955, 91.3344, 916.4964)
+mesh = SubResource("Mesh_26")
+
+[node name="Nieve13" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.7677, 0, 0.6408, 0, 1, 0, -0.6408, 0, 0.7677, 57.5955, 153.9418, 916.4964)
+mesh = SubResource("Mesh_27")

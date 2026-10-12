@@ -1,0 +1,131 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_main"]
+[ext_resource type="PackedScene" path="res://scenes/car.tscn" id="2_car"]
+[ext_resource type="PackedScene" path="res://scenes/item.tscn" id="3_item"]
+[ext_resource type="PackedScene" path="res://pistas/alameda/pista_alameda.tscn" id="4_pista"]
+[ext_resource type="PackedScene" path="res://scenes/meta.tscn" id="5_meta"]
+[ext_resource type="Script" path="res://scripts/checkpoints.gd" id="6_checkpoints"]
+[ext_resource type="PackedScene" path="res://scenes/checkpoint.tscn" id="7_checkpoint"]
+
+[sub_resource type="ProceduralSkyMaterial" id="Cielo_mat"]
+sky_top_color = Color(0.38, 0.55, 0.78, 1)
+sky_horizon_color = Color(0.78, 0.76, 0.72, 1)
+ground_horizon_color = Color(0.78, 0.76, 0.72, 1)
+
+[sub_resource type="Sky" id="Cielo"]
+sky_material = SubResource("Cielo_mat")
+
+[sub_resource type="Environment" id="Ambiente"]
+background_mode = 2
+sky = SubResource("Cielo")
+ambient_light_source = 3
+fog_enabled = true
+fog_light_color = Color(0.78, 0.76, 0.72, 1)
+fog_density = 0.0005
+fog_sky_affect = 0.3
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_main")
+player_scene = ExtResource("2_car")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Ambiente")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+directional_shadow_max_distance = 200.0
+
+[node name="PistaAlameda" parent="." instance=ExtResource("4_pista")]
+
+[node name="Meta" parent="." instance=ExtResource("5_meta")]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, -30, 0, 0)
+
+[node name="SpawnPoints" type="Node3D" parent="."]
+
+[node name="Spawn1" type="Marker3D" parent="SpawnPoints"]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, -12, 0.5, -3)
+
+[node name="Spawn2" type="Marker3D" parent="SpawnPoints"]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, -10, 0.5, 3)
+
+[node name="Spawn3" type="Marker3D" parent="SpawnPoints"]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, -5, 0.5, -3)
+
+[node name="Spawn4" type="Marker3D" parent="SpawnPoints"]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, -3, 0.5, 3)
+
+[node name="Spawn5" type="Marker3D" parent="SpawnPoints"]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 2, 0.5, -3)
+
+[node name="Spawn6" type="Marker3D" parent="SpawnPoints"]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 4, 0.5, 3)
+
+[node name="Spawn7" type="Marker3D" parent="SpawnPoints"]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 9, 0.5, -3)
+
+[node name="Spawn8" type="Marker3D" parent="SpawnPoints"]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 11, 0.5, 3)
+
+[node name="Checkpoint Markers" type="Node3D" parent="."]
+script = ExtResource("6_checkpoints")
+checkpoint_scene = ExtResource("7_checkpoint")
+max_laps = 3
+
+[node name="Marker3D1" type="Marker3D" parent="Checkpoint Markers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -195.5, 0, 3.17)
+
+[node name="Marker3D2" type="Marker3D" parent="Checkpoint Markers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -200.04, 0, 130.13)
+
+[node name="Marker3D3" type="Marker3D" parent="Checkpoint Markers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52.95, 0, 129.32)
+
+[node name="Marker3D4" type="Marker3D" parent="Checkpoint Markers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 95.64, 0, 120.87)
+
+[node name="Marker3D5" type="Marker3D" parent="Checkpoint Markers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 251.77, 0, 88.31)
+
+[node name="Marker3D6" type="Marker3D" parent="Checkpoint Markers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 283.47, 0, -67.47)
+
+[node name="Marker3D7" type="Marker3D" parent="Checkpoint Markers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 170.68, 0, -141.17)
+
+[node name="Marker3D8" type="Marker3D" parent="Checkpoint Markers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 138.0, 0, 0.0)
+
+[node name="Players" type="Node3D" parent="."]
+
+[node name="Items" type="Node3D" parent="."]
+
+[node name="Item1" parent="Items" instance=ExtResource("3_item")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -235.01, 1.0768249, 85.87)
+
+[node name="Item2" parent="Items" instance=ExtResource("3_item")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -238.99, 1.0768249, 86.25)
+
+[node name="Item3" parent="Items" instance=ExtResource("3_item")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -242.97, 1.0768249, 86.63)
+
+[node name="Item4" parent="Items" instance=ExtResource("3_item")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 175.82, 1.0768249, 114.82)
+
+[node name="Item5" parent="Items" instance=ExtResource("3_item")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 176.67, 1.0768249, 118.73)
+
+[node name="Item6" parent="Items" instance=ExtResource("3_item")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 177.51, 1.0768249, 122.64)
+
+[node name="Item7" parent="Items" instance=ExtResource("3_item")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 168.78, 1.0768249, -135.93)
+
+[node name="Item8" parent="Items" instance=ExtResource("3_item")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 167.03, 1.0768249, -139.53)
+
+[node name="Item9" parent="Items" instance=ExtResource("3_item")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 165.28, 1.0768249, -143.13)
+
+[node name="Checkpoints" type="Node3D" parent="."]

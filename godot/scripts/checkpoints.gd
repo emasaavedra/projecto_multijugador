@@ -19,6 +19,9 @@ func _process(delta: float) -> void:
 	pass
 
 func spawn_all_checkpoints() -> void:
+	# al cruzar la meta sin haber tomado todos, no deben quedar checkpoints duplicados
+	for viejo: Node in checkpoints.get_children():
+		viejo.queue_free()
 	for i: int in get_children().size():
 		# Obtenemos el marker
 		var child: Marker3D = get_child(i) as Marker3D
@@ -28,10 +31,16 @@ func spawn_all_checkpoints() -> void:
 		checkpoint_inst.global_position = child.global_position
 		checkpoint_inst.body_entered.connect(sennal.bind(checkpoint_inst, i))
 
-func sennal(body: Auto, inst: Node, index: int) -> void:
-	body.checkpoint_reached(index)
-	Debug.log("Player " + body.name + " has reached " + str(body.checkpoints) + " checkpoints. Last checkpoint: " + str(body.last_checkpoint))
+func sennal(body: Node3D, inst: Node, index: int) -> void:
+	# el área también detecta el suelo, las barreras y al gato
+	var auto: Auto = body as Auto
+	if auto == null:
+		return
+	auto.checkpoint_reached(index)
+	Debug.log("Player " + auto.name + " has reached " + str(auto.checkpoints) + " checkpoints. Last checkpoint: " + str(auto.last_checkpoint))
 	inst.queue_free()
 
-func _on_finish_line_body_entered(body: Auto) -> void:
+func _on_finish_line_body_entered(body: Node3D) -> void:
+	if body is not Auto:
+		return
 	spawn_all_checkpoints()

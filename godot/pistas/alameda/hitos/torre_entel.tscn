@@ -1,0 +1,10 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://pistas/alameda/modelos/torre_entel.glb" id="1_modelo"]
+
+
+[node name="TorreEntel" type="Node3D"]
+metadata/radio = 26
+
+[node name="Modelo" parent="." instance=ExtResource("1_modelo")]
+transform = Transform3D(0.5951, 0, -0.0762, 0, 0.6, 0, 0.0762, 0, 0.5951, 0, 0, 0)

@@ -1,0 +1,83 @@
+[gd_scene format=3]
+
+[sub_resource type="StandardMaterial3D" id="Mat_0"]
+albedo_color = Color(0.6, 0.4, 0.3, 1)
+
+[sub_resource type="StandardMaterial3D" id="Mat_1"]
+albedo_color = Color(0.45, 0.2, 0.15, 1)
+
+[sub_resource type="StandardMaterial3D" id="Mat_2"]
+albedo_color = Color(0.92, 0.88, 0.78, 1)
+
+[sub_resource type="StandardMaterial3D" id="Mat_3"]
+albedo_color = Color(0.93, 0.92, 0.88, 1)
+
+[sub_resource type="StandardMaterial3D" id="Mat_4"]
+albedo_color = Color(0.8, 0.78, 0.72, 1)
+
+[sub_resource type="BoxMesh" id="Mesh_0"]
+material = SubResource("Mat_0")
+size = Vector3(14, 12, 40)
+
+[sub_resource type="PrismMesh" id="Mesh_1"]
+material = SubResource("Mat_1")
+size = Vector3(14.6, 5, 40.5)
+
+[sub_resource type="BoxMesh" id="Mesh_2"]
+material = SubResource("Mat_2")
+size = Vector3(7, 24, 7)
+
+[sub_resource type="BoxMesh" id="Mesh_3"]
+material = SubResource("Mat_2")
+size = Vector3(5.5, 7, 5.5)
+
+[sub_resource type="CylinderMesh" id="Mesh_4"]
+material = SubResource("Mat_3")
+top_radius = 1.5
+bottom_radius = 1.5
+height = 0.3
+radial_segments = 16
+rings = 1
+
+[sub_resource type="CylinderMesh" id="Mesh_5"]
+material = SubResource("Mat_1")
+top_radius = 0
+bottom_radius = 3.6
+height = 10
+radial_segments = 4
+rings = 1
+
+[sub_resource type="BoxMesh" id="Mesh_6"]
+material = SubResource("Mat_4")
+size = Vector3(26, 0.08, 10)
+
+[node name="IglesiaSanFrancisco" type="Node3D"]
+metadata/radio = 26
+
+[node name="Nave" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, -10)
+mesh = SubResource("Mesh_0")
+
+[node name="Techo" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.5, -10)
+mesh = SubResource("Mesh_1")
+
+[node name="Torre" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12, 12)
+mesh = SubResource("Mesh_2")
+
+[node name="Campanario" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 27.5, 12)
+mesh = SubResource("Mesh_3")
+
+[node name="Reloj" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0, 27.5, 14.9)
+mesh = SubResource("Mesh_4")
+
+[node name="Aguja" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.7071, 0, 0.7071, 0, 1, 0, -0.7071, 0, 0.7071, 0, 36, 12)
+mesh = SubResource("Mesh_5")
+
+[node name="Atrio" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.04, 21)
+mesh = SubResource("Mesh_6")

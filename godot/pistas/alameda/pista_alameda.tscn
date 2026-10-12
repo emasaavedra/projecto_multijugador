@@ -1,0 +1,147 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/pista_generador.gd" id="1_gen"]
+[ext_resource type="Script" path="res://scripts/ciudad_relleno.gd" id="2_ciudad"]
+[ext_resource type="Shader" path="res://shaders/asfalto.gdshader" id="3_asfalto"]
+[ext_resource type="Shader" path="res://shaders/barrera.gdshader" id="4_barrera"]
+[ext_resource type="PackedScene" path="res://pistas/alameda/hitos/la_moneda.tscn" id="5_moneda"]
+[ext_resource type="PackedScene" path="res://pistas/alameda/hitos/torre_entel.tscn" id="6_entel"]
+[ext_resource type="PackedScene" path="res://pistas/alameda/hitos/cerro_santa_lucia.tscn" id="7_cerro"]
+[ext_resource type="PackedScene" path="res://pistas/alameda/hitos/biblioteca_nacional.tscn" id="8_biblio"]
+[ext_resource type="PackedScene" path="res://pistas/alameda/hitos/iglesia_san_francisco.tscn" id="9_sanfran"]
+[ext_resource type="PackedScene" path="res://pistas/alameda/hitos/casa_central_uchile.tscn" id="10_uchile"]
+[ext_resource type="PackedScene" path="res://pistas/alameda/hitos/barrio_republica.tscn" id="11_republica"]
+[ext_resource type="PackedScene" path="res://pistas/alameda/hitos/cordillera.tscn" id="12_cordillera"]
+[ext_resource type="PackedScene" path="res://pistas/alameda/modelos/torre_santander.glb" id="20_torre_santander"]
+[ext_resource type="PackedScene" path="res://pistas/alameda/modelos/edificio_residencial.glb" id="21_edificio_residencial"]
+[ext_resource type="PackedScene" path="res://pistas/alameda/modelos/torre_s14_a.glb" id="22_torre_s14_a"]
+[ext_resource type="PackedScene" path="res://pistas/alameda/modelos/torre_s14_d.glb" id="23_torre_s14_d"]
+[ext_resource type="PackedScene" path="res://pistas/alameda/modelos/hotel_marriott.glb" id="24_hotel_marriott"]
+[ext_resource type="PackedScene" path="res://pistas/alameda/modelos/torre_s14_b.glb" id="25_torre_s14_b"]
+[ext_resource type="PackedScene" path="res://pistas/alameda/modelos/torre_s14_c.glb" id="26_torre_s14_c"]
+[ext_resource type="PackedScene" path="res://pistas/alameda/modelos/torre_s14_e.glb" id="27_torre_s14_e"]
+[ext_resource type="PackedScene" path="res://pistas/alameda/modelos/torres_alameda.glb" id="28_torres_alameda"]
+[ext_resource type="PackedScene" path="res://pistas/alameda/modelos/edificio_aguas.glb" id="29_edificio_aguas"]
+[ext_resource type="PackedScene" path="res://pistas/alameda/modelos/edificio_diego_portales.glb" id="30_edificio_diego_portales"]
+
+[sub_resource type="WorldBoundaryShape3D" id="Suelo_shape"]
+
+[sub_resource type="StandardMaterial3D" id="Suelo_mat"]
+albedo_color = Color(0.42, 0.43, 0.4, 1)
+
+[sub_resource type="PlaneMesh" id="Suelo_mesh"]
+material = SubResource("Suelo_mat")
+size = Vector2(1600, 1200)
+
+[sub_resource type="Curve3D" id="Curva_recorrido"]
+closed = true
+bake_interval = 0.5
+_data = {
+"points": PackedVector3Array(26.667, 0, -0, -26.667, 0, 0, 140, 0, 0, 66.667, 0, -0, -66.667, 0, 0, 60, 0, 0, 70, 0, -0, -70, 0, 0, -60, 0, 0, 51.667, 0, -6, -51.667, 0, 6, -150, 0, 0, 30, 0, -25, -30, 0, 25, -215, 0, 18, -3.333, 0, -36.667, 3.333, 0, 36.667, -240, 0, 75, -33.333, 0, -15.667, 33.333, 0, 15.667, -205, 0, 128, -40, 0, -6.667, 40, 0, 6.667, -140, 0, 122, -38.333, 0, 1.333, 38.333, 0, -1.333, -85, 0, 148, -40, 0, 1, 40, 0, -1, -25, 0, 118, -41.667, 0, -0.667, 41.667, 0, 0.667, 35, 0, 145, -48.333, 0, 9, 48.333, 0, -9, 100, 0, 120, -51.667, 0, 11.667, 51.667, 0, -11.667, 180, 0, 118, -35, 0, 36, 35, 0, -36, 255, 0, 85, -8.333, 0, 55, 8.333, 0, -55, 285, 0, 10, 13.333, 0, 49.333, -13.333, 0, -49.333, 280, 0, -80, 33.333, 0, 21.667, -33.333, 0, -21.667, 245, 0, -138, 31.667, 0, -12.667, -31.667, 0, 12.667, 180, 0, -145, 7.333, 0, -34.333, -7.333, 0, 34.333, 150, 0, -100, 3.333, 0, -33.333, -3.333, 0, 33.333, 158, 0, -42
+),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 20
+
+[sub_resource type="ShaderMaterial" id="Mat_asfalto"]
+render_priority = 0
+shader = ExtResource("3_asfalto")
+
+[sub_resource type="ShaderMaterial" id="Mat_barrera"]
+render_priority = 0
+shader = ExtResource("4_barrera")
+
+[node name="PistaAlameda" type="Node3D"]
+
+[node name="Suelo" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Suelo"]
+shape = SubResource("Suelo_shape")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Suelo"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 300, 0, 0)
+mesh = SubResource("Suelo_mesh")
+
+[node name="Recorrido" type="Path3D" parent="."]
+curve = SubResource("Curva_recorrido")
+
+[node name="Pista" type="Node3D" parent="." node_paths=PackedStringArray("recorrido")]
+script = ExtResource("1_gen")
+recorrido = NodePath("../Recorrido")
+material_carretera = SubResource("Mat_asfalto")
+material_barrera = SubResource("Mat_barrera")
+
+[node name="Hitos" type="Node3D" parent="."]
+
+[node name="LaMoneda" parent="Hitos" instance=ExtResource("5_moneda")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, -50)
+
+[node name="TorreEntel" parent="Hitos" instance=ExtResource("6_entel")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -105, 0, -45)
+
+[node name="CerroSantaLucia" parent="Hitos" instance=ExtResource("7_cerro")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 220, 0, -70)
+
+[node name="BibliotecaNacional" parent="Hitos" instance=ExtResource("8_biblio")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 0, -42)
+
+[node name="IglesiaSanFrancisco" parent="Hitos" instance=ExtResource("9_sanfran")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 85, 0, 45)
+
+[node name="CasaCentralUChile" parent="Hitos" instance=ExtResource("10_uchile")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 15, 0, 45)
+
+[node name="BarrioRepublica" parent="Hitos" instance=ExtResource("11_republica")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -185, 0, 68)
+
+[node name="TorreSantander" parent="Hitos" instance=ExtResource("20_torre_santander")]
+transform = Transform3D(0.4959, 0, -0.0635, 0, 0.5, 0, 0.0635, 0, 0.4959, -70, 0, 62)
+metadata/radio = 33.6
+
+[node name="EdificioResidencial" parent="Hitos" instance=ExtResource("21_edificio_residencial")]
+transform = Transform3D(0.4959, 0, -0.0635, 0, 0.5, 0, 0.0635, 0, 0.4959, 178, 0, 52)
+metadata/radio = 15.8
+
+[node name="TorreS14A" parent="Hitos" instance=ExtResource("22_torre_s14_a")]
+transform = Transform3D(0.4959, 0, -0.0635, 0, 0.5, 0, 0.0635, 0, 0.4959, 215, 0, 38)
+metadata/radio = 17.4
+
+[node name="TorreS14D" parent="Hitos" instance=ExtResource("23_torre_s14_d")]
+transform = Transform3D(0.4959, 0, -0.0635, 0, 0.5, 0, 0.0635, 0, 0.4959, 240, 0, 20)
+metadata/radio = 15.5
+
+[node name="HotelMarriott" parent="Hitos" instance=ExtResource("24_hotel_marriott")]
+transform = Transform3D(0.4959, 0, -0.0635, 0, 0.5, 0, 0.0635, 0, 0.4959, -30, 0, -140)
+metadata/radio = 32.4
+
+[node name="TorreS14B" parent="Hitos" instance=ExtResource("25_torre_s14_b")]
+transform = Transform3D(0.4959, 0, -0.0635, 0, 0.5, 0, 0.0635, 0, 0.4959, 40, 0, -105)
+metadata/radio = 15.9
+
+[node name="TorreS14C" parent="Hitos" instance=ExtResource("26_torre_s14_c")]
+transform = Transform3D(0.4959, 0, -0.0635, 0, 0.5, 0, 0.0635, 0, 0.4959, -95, 0, -125)
+metadata/radio = 33.2
+
+[node name="TorreS14E" parent="Hitos" instance=ExtResource("27_torre_s14_e")]
+transform = Transform3D(0.4959, 0, -0.0635, 0, 0.5, 0, 0.0635, 0, 0.4959, 100, 0, -115)
+metadata/radio = 21.3
+
+[node name="TorresAlameda" parent="Hitos" instance=ExtResource("28_torres_alameda")]
+transform = Transform3D(0.4959, 0, -0.0635, 0, 0.5, 0, 0.0635, 0, 0.4959, -305, 0, 50)
+metadata/radio = 97
+
+[node name="EdificioAguas" parent="Hitos" instance=ExtResource("29_edificio_aguas")]
+transform = Transform3D(0.4959, 0, -0.0635, 0, 0.5, 0, 0.0635, 0, 0.4959, -165, 0, -80)
+metadata/radio = 38.9
+
+[node name="EdificioDiegoPortales" parent="Hitos" instance=ExtResource("30_edificio_diego_portales")]
+transform = Transform3D(0.4959, 0, -0.0635, 0, 0.5, 0, 0.0635, 0, 0.4959, 380, 0, -15)
+metadata/radio = 100.6
+
+[node name="Cordillera" parent="." instance=ExtResource("12_cordillera")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1100, 0, 0)
+
+[node name="Ciudad" type="Node3D" parent="." node_paths=PackedStringArray("pista", "hitos")]
+script = ExtResource("2_ciudad")
+pista = NodePath("../Pista")
+hitos = NodePath("../Hitos")

@@ -1,0 +1,95 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://pistas/alameda/modelos/la_moneda.glb" id="1_modelo"]
+
+[sub_resource type="StandardMaterial3D" id="Mat_0"]
+albedo_color = Color(0.8, 0.78, 0.72, 1)
+
+[sub_resource type="StandardMaterial3D" id="Mat_1"]
+albedo_color = Color(0.3, 0.55, 0.75, 1)
+
+[sub_resource type="StandardMaterial3D" id="Mat_2"]
+albedo_color = Color(0.82, 0.8, 0.76, 1)
+
+[sub_resource type="StandardMaterial3D" id="Mat_3"]
+albedo_color = Color(0.8, 0.1, 0.12, 1)
+
+[sub_resource type="StandardMaterial3D" id="Mat_4"]
+albedo_color = Color(0.93, 0.92, 0.88, 1)
+
+[sub_resource type="StandardMaterial3D" id="Mat_5"]
+albedo_color = Color(0, 0.2, 0.6, 1)
+
+[sub_resource type="BoxMesh" id="Mesh_0"]
+material = SubResource("Mat_0")
+size = Vector3(60, 0.06, 14)
+
+[sub_resource type="BoxMesh" id="Mesh_1"]
+material = SubResource("Mat_1")
+size = Vector3(16, 0.12, 4)
+
+[sub_resource type="BoxMesh" id="Mesh_2"]
+material = SubResource("Mat_1")
+size = Vector3(16, 0.12, 4)
+
+[sub_resource type="CylinderMesh" id="Mesh_3"]
+material = SubResource("Mat_2")
+top_radius = 0.2
+bottom_radius = 0.25
+height = 20
+radial_segments = 8
+rings = 1
+
+[sub_resource type="BoxMesh" id="Mesh_4"]
+material = SubResource("Mat_3")
+size = Vector3(8, 2.6, 0.08)
+
+[sub_resource type="BoxMesh" id="Mesh_5"]
+material = SubResource("Mat_4")
+size = Vector3(5.33, 2.6, 0.08)
+
+[sub_resource type="BoxMesh" id="Mesh_6"]
+material = SubResource("Mat_5")
+size = Vector3(2.67, 2.6, 0.08)
+
+[sub_resource type="BoxMesh" id="Mesh_7"]
+material = SubResource("Mat_4")
+size = Vector3(0.9, 0.9, 0.12)
+
+[node name="LaMoneda" type="Node3D"]
+metadata/radio = 42
+
+[node name="Modelo" parent="." instance=ExtResource("1_modelo")]
+transform = Transform3D(0.4959, 0, -0.0635, 0, 0.5, 0, 0.0635, 0, 0.4959, 0, 0, -12)
+
+[node name="PlazaCiudadania" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03, 27)
+mesh = SubResource("Mesh_0")
+
+[node name="EspejoAguaOeste" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0.06, 28)
+mesh = SubResource("Mesh_1")
+
+[node name="EspejoAguaEste" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0.06, 28)
+mesh = SubResource("Mesh_2")
+
+[node name="Mastil" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 31)
+mesh = SubResource("Mesh_3")
+
+[node name="BanderaRoja" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.25, 16.5, 31)
+mesh = SubResource("Mesh_4")
+
+[node name="BanderaBlanca" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.58, 19.1, 31)
+mesh = SubResource("Mesh_5")
+
+[node name="BanderaAzul" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.58, 19.1, 31)
+mesh = SubResource("Mesh_6")
+
+[node name="Estrella" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.7071, -0.7071, 0, 0.7071, 0.7071, 0, 0, 0, 1, 1.58, 19.1, 31)
+mesh = SubResource("Mesh_7")
