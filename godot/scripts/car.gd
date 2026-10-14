@@ -8,7 +8,7 @@ class_name Auto
 @export var camera_min_pitch: float = -20
 @export var camera_max_pitch: float = 30
 @export var checkpoints: int = 0
-@export var last_checkpoint: int
+var last_checkpoint: Checkpoint
 
 @onready var spring_arm_3d: SpringArm3D = $SpringArm3D
 @onready var gato: CharacterBody3D = $Gato
@@ -16,10 +16,12 @@ class_name Auto
 @onready var camera_3d: Camera3D = $SpringArm3D/Camera3D
 @onready var input_synchronizer: InputSynchronizer = $InputSynchronizer
 @onready var sync_timer: Timer = $SyncTimer
+@onready var hud: UIHud = $HUD
 
 func _ready() -> void:
 	var player_data: Statics.PlayerData = Game.instance.get_player(get_multiplayer_authority())
 	label_3d.text = player_data.name
+	hud.visible = is_multiplayer_authority()
 	#sync_timer.timeout.connect(_on_sync_timeout)
 	#if is_multiplayer_authority():
 	#	sync_timer.start()
@@ -86,7 +88,3 @@ func send_data(pos: Vector3, rot: Vector3, engine: float, freno: float, steer_f:
 @rpc("any_peer", "call_local")
 func picked_an_item() -> void:
 	Debug.log("he tomado el item :D", 10)
-
-func checkpoint_reached(index: int) -> void:
-	last_checkpoint = index
-	checkpoints += 1

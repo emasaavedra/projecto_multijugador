@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c88f8fcwywph7"]
 
 [ext_resource type="Script" uid="uid://su1wn8yqnmn7" path="res://scripts/car.gd" id="1_yjkmi"]
+[ext_resource type="PackedScene" uid="uid://cip8j88jwyjol" path="res://gameplay/hud.tscn" id="2_3mrxu"]
 [ext_resource type="Texture2D" uid="uid://7sknfy08sbp3" path="res://icon.svg" id="2_cysvk"]
 [ext_resource type="PackedScene" uid="uid://ogt3j5cg2hli" path="res://cata/gato.tscn" id="3_50v30"]
 [ext_resource type="PackedScene" uid="uid://kyo5ugj565rn" path="res://scenes/input_synchronizer.tscn" id="4_jtldb"]
@@ -26,6 +27,8 @@ height = 0.1
 top_level = true
 center_of_mass_mode = 1
 script = ExtResource("1_yjkmi")
+
+[node name="HUD" parent="." unique_id=191410234 instance=ExtResource("2_3mrxu")]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1378440033]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)

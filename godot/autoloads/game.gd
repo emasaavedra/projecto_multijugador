@@ -15,7 +15,12 @@ static var instance: Game
 @export var test_players: Array[PlayerDataResource] = [] # first one is server
 @export var main_scene: PackedScene
 
+var current_scene: Node3D
+
 var players: Array[Statics.PlayerData] = []
+var checkpoints_amount: int = 0
+#	get:
+#		return current_scene.call("get_checkpoints_amount")
 var change_window_scale : bool = true :
 	set(value):
 		var last_value: bool = change_window_scale
@@ -30,7 +35,7 @@ var _is_window_small: bool = false
 var _initial_window_scale_mode: Window.ContentScaleMode
 var _initial_window_scale_aspect: Window.ContentScaleAspect
 
-@onready var player_id: Label = %PlayerId
+@onready var player_id_label: Label = %PlayerIdLabel
 
 func _enter_tree() -> void:
 	instance = self
@@ -43,9 +48,12 @@ func _ready() -> void:
 	_update_window_scale()
 	get_tree().node_added.connect(_handle_node_added)
 	
+	#current_scene = main_scene.instantiate() as Node3D
+	#add_child(current_scene)
+	
 	if not OS.is_debug_build():
 		multiplayer_test = false
-		player_id.hide()
+		player_id_label.hide()
 
 
 func sort_players() -> void:
@@ -143,10 +151,10 @@ func update_player_id() -> void:
 	if not OS.is_debug_build():
 		return
 	if Debug.is_online():
-		player_id.show()
-		player_id.text = str(multiplayer.get_unique_id())
+		player_id_label.show()
+		player_id_label.text = str(multiplayer.get_unique_id())
 	else:
-		player_id.hide()
+		player_id_label.hide()
 
 
 func reset_window_scale() -> void:
@@ -182,3 +190,16 @@ func _handle_node_added(node: Node) -> void:
 		# Scene has been changed
 		change_window_scale = node is MainMenu or node is Lobby or \
 			node is LobbyJoinScreen or node is LobbyWaitingScreen or node is Credits
+
+func checkpoint_reached(player_id: int, amount: int) -> void:
+	if not multiplayer.is_server():
+		return
+	var player_data: Statics.PlayerData = get_player(player_id)
+	player_data.checkpoints += amount
+	checkpoints_broadcast.rpc(player_id, player_data.checkpoints)
+
+@rpc()
+func checkpoints_broadcast(player_id: int, checkpoints: int) -> void:
+	var player_data: Statics.PlayerData = get_player(player_id)
+	player_data.checkpoints += checkpoints
+	#Debug.log(player_data.name, player_data.checkpoints)

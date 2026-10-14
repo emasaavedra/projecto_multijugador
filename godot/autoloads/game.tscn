@@ -29,7 +29,7 @@ main_scene = ExtResource("3_du0e2")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1737081465]
 layer = 127
 
-[node name="PlayerId" type="Label" parent="CanvasLayer" unique_id=2081214992]
+[node name="PlayerIdLabel" type="Label" parent="CanvasLayer" unique_id=2081214992]
 unique_name_in_owner = true
 z_index = 999
 anchors_preset = 1

@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://blfte43wsa14n"]
+
+[ext_resource type="Script" uid="uid://dkpq3c7oexeej" path="res://gameplay/player_laps.gd" id="1_vxtey"]
+
+[node name="PlayerLaps" type="HBoxContainer" unique_id=1047356542]
+script = ExtResource("1_vxtey")
+
+[node name="NameLabel" type="Label" parent="." unique_id=1869179280]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Laps:"
+
+[node name="Number Laps" type="Label" parent="." unique_id=1818357666]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "22"
+horizontal_alignment = 2
+
+[node name="Text" type="Label" parent="." unique_id=1315803312]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Checkpoints"
+horizontal_alignment = 2

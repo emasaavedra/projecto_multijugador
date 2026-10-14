@@ -1,0 +1,36 @@
+[gd_resource type="Theme" format=3 uid="uid://vaw74dvv65fh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3xflx"]
+bg_color = Color(0, 0, 0, 0.501961)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_duirp"]
+bg_color = Color(0, 0, 0, 0.0627451)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_clys6"]
+
+[resource]
+default_font_size = 32
+Darker/base_type = &"Panel"
+Darker/styles/panel = SubResource("StyleBoxFlat_3xflx")
+HBoxContainer/constants/separation = 32
+MarginContainer/constants/margin_bottom = 16
+MarginContainer/constants/margin_left = 16
+MarginContainer/constants/margin_right = 16
+MarginContainer/constants/margin_top = 16
+Panel/styles/panel = SubResource("StyleBoxFlat_duirp")
+Tight/base_type = &"MarginContainer"
+Tight/constants/margin_bottom = 16
+Tight/constants/margin_left = 16
+Tight/constants/margin_right = 16
+Tight/constants/margin_top = 16
+Tight/constants/separation = 16
+Title/base_type = &"Label"
+Title/font_sizes/font_size = 64
+VBoxContainer/constants/separation = 24
+Zero/base_type = &"Control"
+Zero/constants/margin_bottom = 0
+Zero/constants/margin_left = 0
+Zero/constants/margin_right = 0
+Zero/constants/margin_top = 0
+Zero/constants/separation = 0
+Zero/styles/panel = SubResource("StyleBoxEmpty_clys6")

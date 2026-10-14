@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://cip8j88jwyjol"]
+
+[ext_resource type="Script" uid="uid://cckq81jm05uuh" path="res://scripts/hud.gd" id="1_eky44"]
+
+[node name="HUD" type="CanvasLayer" unique_id=191410234]
+script = ExtResource("1_eky44")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1219236779]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -54.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer" unique_id=564700860]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer" unique_id=725450104]
+layout_mode = 2
+
+[node name="PlayerLapsContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer" unique_id=1688761614]
+unique_name_in_owner = true
+layout_mode = 2
