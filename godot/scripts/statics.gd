@@ -51,7 +51,7 @@ class PlayerData:
 		checkpoints = 0
 	
 	func _to_string() -> String:
-		return "Player: {id: %d, name: %s, index: %d, role: %d}" % [id, name, index, Statics.get_role_name(role)]
+		return "Player: {id: %d, name: %s, index: %d, role: %s}" % [id, name, index, Statics.get_role_name(role)]
 	
 	func to_dict() -> Dictionary:
 		return {

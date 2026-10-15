@@ -199,8 +199,16 @@ func checkpoint_reached(player_id: int, amount: int) -> void:
 	player_data.checkpoints += amount
 	checkpoints_broadcast.rpc(player_id, player_data.checkpoints)
 
-@rpc()
+@rpc("reliable")
 func checkpoints_broadcast(player_id: int, checkpoints: int) -> void:
 	var player_data: Statics.PlayerData = get_player(player_id)
-	player_data.checkpoints += checkpoints
+	if not player_data:
+		return
+	# El servidor manda el total, no el incremento
+	player_data.checkpoints = checkpoints
 	#Debug.log(player_data.name, player_data.checkpoints)
+
+# Se llama al iniciar cada carrera para no arrastrar datos de la anterior
+func reset_race() -> void:
+	for player: Statics.PlayerData in players:
+		player.checkpoints = 0

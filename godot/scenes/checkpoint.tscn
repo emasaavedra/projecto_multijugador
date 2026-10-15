@@ -12,4 +12,3 @@ script = ExtResource("1_yyywg")
 shape = SubResource("BoxShape3D_g4v7s")
 debug_color = Color(1.0578071, 0.8526451, 0.22137704, 1)
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]

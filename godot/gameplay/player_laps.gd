@@ -6,18 +6,15 @@ extends HBoxContainer
 
 var _player_data: Statics.PlayerData
 
-var checkpoints_amount: int
-
-func _ready() -> void:
-	checkpoints_amount = Game.checkpoints_amount
-	print("Checkpoints amount: ", checkpoints_amount)
-
 func setup(player_data: Statics.PlayerData) -> void:
-	checkpoints_amount = Game.checkpoints_amount
 	_player_data = player_data
 	name_label.text = player_data.name
-	number_laps.text = str(player_data.checkpoints)
+	_on_checkpoints_change(player_data.checkpoints)
 	player_data.checkpoints_changed.connect(_on_checkpoints_change)
 
 func _on_checkpoints_change(value: int) -> void:
-	number_laps.text = str(floor(value/checkpoints_amount))
+	if Game.checkpoints_amount <= 0:
+		number_laps.text = "0"
+		return
+	@warning_ignore("integer_division")
+	number_laps.text = str(value / Game.checkpoints_amount)
