@@ -1,0 +1,20 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/pepino.gd" id="1_pepino"]
+[ext_resource type="Texture2D" path="res://assets/items/pepino.png" id="2_pepino"]
+
+[sub_resource type="SphereShape3D" id="Forma_pepino"]
+radius = 0.9
+
+[node name="Pepino" type="Area3D"]
+script = ExtResource("1_pepino")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+shape = SubResource("Forma_pepino")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
+pixel_size = 0.005
+billboard = 2
+texture = ExtResource("2_pepino")

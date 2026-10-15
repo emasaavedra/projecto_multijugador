@@ -66,7 +66,7 @@ shape = SubResource("Suelo_shape")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 300, 0, 0)
 mesh = SubResource("Suelo_mesh")
 
-[node name="Recorrido" type="Path3D" parent="."]
+[node name="Recorrido" type="Path3D" parent="." groups=["recorrido"]]
 curve = SubResource("Curva_recorrido")
 
 [node name="Pista" type="Node3D" parent="." node_paths=PackedStringArray("recorrido")]

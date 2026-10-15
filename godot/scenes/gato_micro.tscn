@@ -1,0 +1,137 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://assets/items/bip.png" id="1_bip"]
+
+[sub_resource type="StandardMaterial3D" id="Mat_rojo"]
+albedo_color = Color(0.85, 0.1, 0.12, 1)
+
+[sub_resource type="StandardMaterial3D" id="Mat_blanco"]
+albedo_color = Color(0.95, 0.95, 0.95, 1)
+
+[sub_resource type="StandardMaterial3D" id="Mat_vidrio"]
+albedo_color = Color(0.15, 0.2, 0.28, 1)
+metallic = 0.3
+roughness = 0.2
+
+[sub_resource type="StandardMaterial3D" id="Mat_negro"]
+albedo_color = Color(0.05, 0.05, 0.05, 1)
+
+[sub_resource type="StandardMaterial3D" id="Mat_rosado"]
+albedo_color = Color(0.95, 0.6, 0.65, 1)
+
+[sub_resource type="BoxMesh" id="Cuerpo"]
+material = SubResource("Mat_rojo")
+size = Vector3(2.4, 2.2, 5.6)
+
+[sub_resource type="BoxMesh" id="Franja"]
+material = SubResource("Mat_blanco")
+size = Vector3(2.42, 0.35, 5.62)
+
+[sub_resource type="BoxMesh" id="Ventanas"]
+material = SubResource("Mat_vidrio")
+size = Vector3(2.44, 0.7, 4.4)
+
+[sub_resource type="BoxMesh" id="Parabrisas"]
+material = SubResource("Mat_vidrio")
+size = Vector3(2.0, 0.8, 0.06)
+
+[sub_resource type="CylinderMesh" id="Rueda"]
+material = SubResource("Mat_negro")
+top_radius = 0.45
+bottom_radius = 0.45
+height = 0.3
+radial_segments = 12
+rings = 1
+
+[sub_resource type="PrismMesh" id="Oreja"]
+material = SubResource("Mat_rojo")
+size = Vector3(0.7, 0.8, 0.4)
+
+[sub_resource type="PrismMesh" id="Oreja_interior"]
+material = SubResource("Mat_rosado")
+size = Vector3(0.4, 0.5, 0.42)
+
+[sub_resource type="SphereMesh" id="Ojo"]
+material = SubResource("Mat_blanco")
+radius = 0.25
+height = 0.5
+radial_segments = 12
+rings = 6
+
+[sub_resource type="SphereMesh" id="Pupila"]
+material = SubResource("Mat_negro")
+radius = 0.12
+height = 0.24
+radial_segments = 8
+rings = 4
+
+[node name="GatoMicro" type="Node3D"]
+
+[node name="Cuerpo" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 0)
+mesh = SubResource("Cuerpo")
+
+[node name="Franja" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+mesh = SubResource("Franja")
+
+[node name="Ventanas" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, -0.4)
+mesh = SubResource("Ventanas")
+
+[node name="Parabrisas" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, 2.81)
+mesh = SubResource("Parabrisas")
+
+[node name="RuedaDI" type="MeshInstance3D" parent="."]
+transform = Transform3D(0, -1, 0, 1, 0, 0, 0, 0, 1, 1.2, 0.45, 1.8)
+mesh = SubResource("Rueda")
+
+[node name="RuedaDD" type="MeshInstance3D" parent="."]
+transform = Transform3D(0, -1, 0, 1, 0, 0, 0, 0, 1, -1.2, 0.45, 1.8)
+mesh = SubResource("Rueda")
+
+[node name="RuedaTI" type="MeshInstance3D" parent="."]
+transform = Transform3D(0, -1, 0, 1, 0, 0, 0, 0, 1, 1.2, 0.45, -1.8)
+mesh = SubResource("Rueda")
+
+[node name="RuedaTD" type="MeshInstance3D" parent="."]
+transform = Transform3D(0, -1, 0, 1, 0, 0, 0, 0, 1, -1.2, 0.45, -1.8)
+mesh = SubResource("Rueda")
+
+[node name="OrejaI" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, 2.9, 2.0)
+mesh = SubResource("Oreja")
+
+[node name="OrejaIInterior" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, 2.82, 2.0)
+mesh = SubResource("Oreja_interior")
+
+[node name="OrejaD" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7, 2.9, 2.0)
+mesh = SubResource("Oreja")
+
+[node name="OrejaDInterior" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7, 2.82, 2.0)
+mesh = SubResource("Oreja_interior")
+
+[node name="OjoI" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.55, 2.3, 2.8)
+mesh = SubResource("Ojo")
+
+[node name="PupilaI" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.55, 2.3, 3.0)
+mesh = SubResource("Pupila")
+
+[node name="OjoD" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.55, 2.3, 2.8)
+mesh = SubResource("Ojo")
+
+[node name="PupilaD" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.55, 2.3, 3.0)
+mesh = SubResource("Pupila")
+
+[node name="LetreroBip" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 2.84)
+pixel_size = 0.004
+texture = ExtResource("1_bip")
