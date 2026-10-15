@@ -7,7 +7,6 @@ class_name Auto
 @export var mouse_sensitivity: float = 0.01
 @export var camera_min_pitch: float = -20
 @export var camera_max_pitch: float = 30
-@export var checkpoints: int = 0
 var last_checkpoint: Checkpoint
 
 @onready var spring_arm_3d: SpringArm3D = $SpringArm3D
@@ -15,7 +14,6 @@ var last_checkpoint: Checkpoint
 @onready var label_3d: Label3D = $Label3D
 @onready var camera_3d: Camera3D = $SpringArm3D/Camera3D
 @onready var input_synchronizer: InputSynchronizer = $InputSynchronizer
-@onready var sync_timer: Timer = $SyncTimer
 @onready var hud: UIHud = $HUD
 @onready var victory_screen: VictoryScreen = $VictoryScreen
 
@@ -24,9 +22,6 @@ func _ready() -> void:
 	label_3d.text = player_data.name
 	hud.visible = is_multiplayer_authority()
 	victory_screen.hide()
-	#sync_timer.timeout.connect(_on_sync_timeout)
-	#if is_multiplayer_authority():
-	#	sync_timer.start()
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("test") and is_multiplayer_authority():
@@ -36,9 +31,7 @@ func setup(player_data: Statics.PlayerData) -> void:
 	label_3d.text = player_data.name
 	set_multiplayer_authority(player_data.id)
 	camera_3d.current = is_multiplayer_authority()
-	#if is_multiplayer_authority():
-	#	sync_timer.start()
-	
+
 func _physics_process(delta: float) -> void:
 	if not is_multiplayer_authority():
 		return
@@ -74,18 +67,6 @@ func send_data(pos: Vector3, rot: Vector3, engine: float, freno: float, steer_f:
 	brake = freno
 	steering = steer_f
 
-#func _on_sync_timeout() -> void:
-#	_sync.rpc(global_position, global_rotation, brake, engine_force, steering)
-
-#@rpc("reliable")
-#func _sync(pos: Vector3, rot: Vector3, freno: float, engine: float, steer_f: float) -> void:
-#	global_position = global_position.lerp(pos, 0.1)
-#	global_rotation = global_rotation.lerp(rot, 0.1)
-	#brake = brake.lerp(freno, 0.5)
-#	brake = freno
-#	engine_force = engine
-#	steering = steer_f
-
 @rpc("any_peer", "call_local")
 func picked_an_item() -> void:
 	Debug.log("he tomado el item :D", 10)
@@ -93,4 +74,3 @@ func picked_an_item() -> void:
 func write_winner(winner: String) -> void:
 	victory_screen.winner_label.text = winner
 	victory_screen.show()
-		

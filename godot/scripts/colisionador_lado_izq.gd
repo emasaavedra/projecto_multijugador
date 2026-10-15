@@ -19,7 +19,7 @@ func generar_barrera():
 		recorrido = get_node_or_null("../recorrido")
 
 	if recorrido == null or recorrido.curve == null:
-		print("ERROR: no se encontró recorrido")
+		push_error("No se encontró recorrido")
 		return
 
 	var curva: Curve3D = recorrido.curve
@@ -156,4 +156,3 @@ func generar_barrera():
 
 	visual.material_override = material
 
-	print(name, ": BARRERA GENERADA")

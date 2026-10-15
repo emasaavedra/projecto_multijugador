@@ -2,13 +2,8 @@ class_name CheckpointsMarkers
 extends Node3D
 
 @export var checkpoint_scene: PackedScene
-var checkpoints_amount: int:
-	get:
-		return get_child_count()
-@export var max_laps: int
 
 @onready var checkpoints: Node3D = $"../Checkpoints"
-@onready var finish_line: FinishLine = $"../Meta"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

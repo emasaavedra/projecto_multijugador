@@ -15,13 +15,9 @@ static var instance: Game
 @export var test_players: Array[PlayerDataResource] = [] # first one is server
 @export var main_scene: PackedScene
 
-var current_scene: Node3D
-
 var players: Array[Statics.PlayerData] = []
 var checkpoints_amount: int = 0
 var laps_amount: int = 0
-#	get:
-#		return current_scene.call("get_checkpoints_amount")
 var change_window_scale : bool = true :
 	set(value):
 		var last_value: bool = change_window_scale
@@ -48,10 +44,7 @@ func _ready() -> void:
 	get_window().size_changed.connect(_handle_size_changed)
 	_update_window_scale()
 	get_tree().node_added.connect(_handle_node_added)
-	
-	#current_scene = main_scene.instantiate() as Node3D
-	#add_child(current_scene)
-	
+
 	if not OS.is_debug_build():
 		multiplayer_test = false
 		player_id_label.hide()
@@ -206,7 +199,6 @@ func checkpoints_broadcast(player_id: int, checkpoints: int) -> void:
 		return
 	# El servidor manda el total, no el incremento
 	player_data.checkpoints = checkpoints
-	#Debug.log(player_data.name, player_data.checkpoints)
 
 # Se llama al iniciar cada carrera para no arrastrar datos de la anterior
 func reset_race() -> void:

@@ -107,9 +107,6 @@ font_size = 60
 
 [node name="InputSynchronizer" parent="." unique_id=1132686555 instance=ExtResource("4_jtldb")]
 
-[node name="SyncTimer" type="Timer" parent="." unique_id=1468083329]
-wait_time = 0.1
-
 [node name="SpringArm3D" type="SpringArm3D" parent="." unique_id=1832068651]
 transform = Transform3D(-1, 0, 8.742278e-08, 2.262668e-08, 0.9659258, 0.25881904, -8.444392e-08, 0.25881904, -0.9659258, 0, 2, 0)
 spring_length = 3.0

@@ -9,7 +9,3 @@ func _ready() -> void:
 		var player_laps: UIPlayerLaps = PLAYER_LAPS.instantiate()
 		player_laps_container.add_child(player_laps)
 		player_laps.setup(player_data)
-
-func set_max_laps(value: int) -> void:
-	pass
-	#player_laps_container.max_laps = value

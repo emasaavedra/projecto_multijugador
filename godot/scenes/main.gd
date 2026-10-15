@@ -3,7 +3,6 @@ extends Node3D
 @export var player_scene: PackedScene
 @onready var spawn_points: Node3D = $SpawnPoints
 @onready var players: Node3D = $Players
-@onready var checkpoint_markers: CheckpointsMarkers = $"Checkpoint Markers"
 @onready var checkpoints: Node3D = $Checkpoints
 @onready var meta: FinishLine = $Meta
 
@@ -49,6 +48,3 @@ func announce_winner(winner_id: int) -> void:
 	for player: Auto in players.get_children():
 		if player.is_multiplayer_authority():
 			player.write_winner(winner_name)
-
-func get_checkpoints_amount() -> int:
-	return checkpoint_markers.checkpoints_amount

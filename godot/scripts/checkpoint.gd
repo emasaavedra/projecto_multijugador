@@ -13,6 +13,5 @@ func _on_body_entered(body: Node3D) -> void:
 		return
 	if player.last_checkpoint != previous_checkpoint:
 		return
-	player.checkpoints += 1
 	Game.instance.checkpoint_reached(player.get_multiplayer_authority(), 1)
 	player.last_checkpoint = self
