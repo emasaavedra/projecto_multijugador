@@ -4,11 +4,11 @@ class_name Auto
 ## Jugador: un gato que corre por la pista con movimiento arcade estilo kart.
 ## Cada cliente mueve su propio gato y manda su posición a los demás.
 
-@export var max_speed: float = 14.0
-@export var reverse_speed: float = 5.0
-@export var acceleration: float = 18.0
-@export var brake_deceleration: float = 30.0
-@export var friction: float = 10.0
+@export var max_speed: float = 22.0
+@export var reverse_speed: float = 7.0
+@export var acceleration: float = 30.0
+@export var brake_deceleration: float = 40.0
+@export var friction: float = 14.0
 @export var turn_speed: float = 2.5
 @export var gravity: float = 25.0
 @export var jump_force: float = 8.0

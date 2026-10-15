@@ -23,6 +23,10 @@
 [ext_resource type="PackedScene" path="res://pistas/alameda/modelos/torres_alameda.glb" id="28_torres_alameda"]
 [ext_resource type="PackedScene" path="res://pistas/alameda/modelos/edificio_aguas.glb" id="29_edificio_aguas"]
 [ext_resource type="PackedScene" path="res://pistas/alameda/modelos/edificio_diego_portales.glb" id="30_edificio_diego_portales"]
+[ext_resource type="Texture2D" path="res://pistas/alameda/texturas/fachada_rosada.png" id="40_fachada_rosada"]
+[ext_resource type="Texture2D" path="res://pistas/alameda/texturas/fachada_ministerio.png" id="41_fachada_ministerio"]
+[ext_resource type="Texture2D" path="res://pistas/alameda/texturas/fachada_torre_blanca.png" id="42_fachada_torre_blanca"]
+[ext_resource type="Texture2D" path="res://pistas/alameda/texturas/fachada_balcones.png" id="43_fachada_balcones"]
 
 [sub_resource type="WorldBoundaryShape3D" id="Suelo_shape"]
 
@@ -145,3 +149,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1100, 0, 0)
 script = ExtResource("2_ciudad")
 pista = NodePath("../Pista")
 hitos = NodePath("../Hitos")
+fachadas = Array[Texture2D]([ExtResource("40_fachada_rosada"), ExtResource("41_fachada_ministerio"), ExtResource("42_fachada_torre_blanca"), ExtResource("43_fachada_balcones")])
+pisos_por_fachada = PackedInt32Array(3, 9, 10, 10)
