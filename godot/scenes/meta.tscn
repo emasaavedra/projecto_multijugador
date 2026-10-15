@@ -33,4 +33,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.959, 0)
 shape = SubResource("BoxShape3D_g4v7s")
 debug_color = Color(0, 0.6, 0.69803923, 1)
 
+[connection signal="body_entered" from="Area" to="." method="_on_area_body_entered"]
+
 [editable path="Sketchfab_Scene"]

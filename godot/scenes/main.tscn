@@ -30,6 +30,7 @@ albedo_texture = ExtResource("1_78xei")
 [node name="Main" type="Node3D" unique_id=461960126]
 script = ExtResource("1_kl5mh")
 player_scene = ExtResource("2_amh4o")
+laps = 2
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=565815534]
 environment = SubResource("Environment_5oie1")

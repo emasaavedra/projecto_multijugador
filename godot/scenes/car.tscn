@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://7sknfy08sbp3" path="res://icon.svg" id="2_cysvk"]
 [ext_resource type="PackedScene" uid="uid://ogt3j5cg2hli" path="res://cata/gato.tscn" id="3_50v30"]
 [ext_resource type="PackedScene" uid="uid://kyo5ugj565rn" path="res://scenes/input_synchronizer.tscn" id="4_jtldb"]
+[ext_resource type="PackedScene" uid="uid://budii14r7hwxc" path="res://ui/victory_screen.tscn" id="6_cp117"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jtldb"]
 albedo_texture = ExtResource("2_cysvk")
@@ -115,3 +116,5 @@ spring_length = 3.0
 
 [node name="Camera3D" type="Camera3D" parent="SpringArm3D" unique_id=1300481877]
 transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
+
+[node name="VictoryScreen" parent="." unique_id=1066533734 instance=ExtResource("6_cp117")]

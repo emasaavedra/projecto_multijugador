@@ -14,7 +14,7 @@ var checkpoints_amount: int:
 func _ready() -> void:
 	spawn_all_checkpoints()
 	await get_tree().create_timer(2.0).timeout
-	finish_line.area.body_entered.connect(_on_finish_line_body_entered)
+	#finish_line.area.body_entered.connect(_on_finish_line_body_entered)
 	#Game.checkpoints_amount = get_children().size()
 	
 var last_checkpoint: Checkpoint

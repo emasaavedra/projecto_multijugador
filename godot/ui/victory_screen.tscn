@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://budii14r7hwxc"]
+
+[ext_resource type="Script" uid="uid://cjga0xvg8trwy" path="res://scripts/victory_screen.gd" id="1_05ipg"]
+[ext_resource type="Theme" uid="uid://weyattyytiyi" path="res://ui/large_font.tres" id="1_oh8u7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yf5fn"]
+bg_color = Color(0.003921569, 0.003921569, 0.003921569, 0.7058824)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(15.3, 15.3, 15.3, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[node name="VictoryScreen" type="CanvasLayer" unique_id=1066533734]
+script = ExtResource("1_05ipg")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1824226816]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.012617188, 0.012617188, 0.012617188, 0.39215687)
+
+[node name="PanelContainer" type="PanelContainer" parent="ColorRect" unique_id=1321776615]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -182.0
+offset_top = -51.5
+offset_right = 182.0
+offset_bottom = 51.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yf5fn")
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect/PanelContainer" unique_id=384369509]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/PanelContainer/MarginContainer" unique_id=1860810245]
+layout_mode = 2
+
+[node name="GameOver" type="Label" parent="ColorRect/PanelContainer/MarginContainer/VBoxContainer" unique_id=1668849078]
+layout_mode = 2
+theme = ExtResource("1_oh8u7")
+text = "GAME OVER"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/PanelContainer/MarginContainer/VBoxContainer" unique_id=995754262]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Text" type="Label" parent="ColorRect/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1273497404]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 1, 0.31764707, 1)
+theme_override_font_sizes/font_size = 40
+text = "Winner:"
+
+[node name="WinnerLabel" type="Label" parent="ColorRect/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=105879444]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 1, 0.31764707, 1)
+theme_override_font_sizes/font_size = 40
