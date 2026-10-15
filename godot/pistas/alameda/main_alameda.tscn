@@ -28,6 +28,7 @@ fog_sky_affect = 0.3
 [node name="Main" type="Node3D"]
 script = ExtResource("1_main")
 player_scene = ExtResource("2_car")
+laps = 3
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Ambiente")
@@ -71,7 +72,6 @@ transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 11, 0.5, 3)
 [node name="Checkpoint Markers" type="Node3D" parent="."]
 script = ExtResource("6_checkpoints")
 checkpoint_scene = ExtResource("7_checkpoint")
-max_laps = 3
 
 [node name="Marker3D1" type="Marker3D" parent="Checkpoint Markers"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -195.5, 0, 3.17)

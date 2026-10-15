@@ -2,105 +2,28 @@
 
 [ext_resource type="Script" uid="uid://su1wn8yqnmn7" path="res://scripts/car.gd" id="1_yjkmi"]
 [ext_resource type="PackedScene" uid="uid://cip8j88jwyjol" path="res://gameplay/hud.tscn" id="2_3mrxu"]
-[ext_resource type="Texture2D" uid="uid://7sknfy08sbp3" path="res://icon.svg" id="2_cysvk"]
 [ext_resource type="PackedScene" uid="uid://ogt3j5cg2hli" path="res://cata/gato.tscn" id="3_50v30"]
 [ext_resource type="PackedScene" uid="uid://kyo5ugj565rn" path="res://scenes/input_synchronizer.tscn" id="4_jtldb"]
 [ext_resource type="PackedScene" uid="uid://budii14r7hwxc" path="res://ui/victory_screen.tscn" id="6_cp117"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jtldb"]
-albedo_texture = ExtResource("2_cysvk")
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gato"]
+radius = 0.5
+height = 1.1
 
-[sub_resource type="BoxMesh" id="BoxMesh_yf5fn"]
-size = Vector3(1, 0.5, 3)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_qt2eu"]
-size = Vector3(1, 0.5, 3)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3mrxu"]
-albedo_texture = ExtResource("2_cysvk")
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_g4v7s"]
-top_radius = 0.2
-bottom_radius = 0.2
-height = 0.1
-
-[node name="Car" type="VehicleBody3D" unique_id=1187559516]
-top_level = true
-center_of_mass_mode = 1
+[node name="Car" type="CharacterBody3D" unique_id=1187559516]
 script = ExtResource("1_yjkmi")
 
 [node name="HUD" parent="." unique_id=191410234 instance=ExtResource("2_3mrxu")]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1378440033]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
-material_override = SubResource("StandardMaterial3D_jtldb")
-mesh = SubResource("BoxMesh_yf5fn")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=25385887]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
-shape = SubResource("BoxShape3D_qt2eu")
-
-[node name="VehicleWheel3D2" type="VehicleWheel3D" parent="." unique_id=282993699]
-transform = Transform3D(1.7413648, 0, 0, 0, 1.7413648, 0, 0, 0, 1.7413648, 0.5, 0, -1)
-use_as_traction = true
-wheel_radius = 0.1
-suspension_stiffness = 20.0
-damping_compression = 12.0
-damping_relaxation = 10.0
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="VehicleWheel3D2" unique_id=2103981448]
-transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
-material_override = SubResource("StandardMaterial3D_3mrxu")
-mesh = SubResource("CylinderMesh_g4v7s")
-skeleton = NodePath("../../VehicleWheel3D2")
-
-[node name="VehicleWheel3D3" type="VehicleWheel3D" parent="." unique_id=1087883212]
-transform = Transform3D(1.7413648, 0, 0, 0, 1.7413648, 0, 0, 0, 1.7413648, -0.5, 0.011, -1)
-use_as_traction = true
-wheel_radius = 0.1
-suspension_stiffness = 20.0
-damping_compression = 12.0
-damping_relaxation = 10.0
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="VehicleWheel3D3" unique_id=598584567]
-transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
-material_override = SubResource("StandardMaterial3D_3mrxu")
-mesh = SubResource("CylinderMesh_g4v7s")
-skeleton = NodePath("../../VehicleWheel3D2")
-
-[node name="VehicleWheel3D4" type="VehicleWheel3D" parent="." unique_id=957231684]
-transform = Transform3D(1.7413648, 0, 0, 0, 1.7413648, 0, 0, 0, 1.7413648, -0.5, 0.011, 1)
-use_as_steering = true
-wheel_radius = 0.1
-suspension_stiffness = 20.0
-damping_compression = 12.0
-damping_relaxation = 10.0
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="VehicleWheel3D4" unique_id=118291443]
-transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
-material_override = SubResource("StandardMaterial3D_3mrxu")
-mesh = SubResource("CylinderMesh_g4v7s")
-skeleton = NodePath("../../VehicleWheel3D2")
-
-[node name="VehicleWheel3D5" type="VehicleWheel3D" parent="." unique_id=1375774772]
-transform = Transform3D(1.7413648, 0, 0, 0, 1.7413648, 0, 0, 0, 1.7413648, 0.5, 0.011, 1)
-use_as_steering = true
-wheel_radius = 0.1
-suspension_stiffness = 20.0
-damping_compression = 12.0
-damping_relaxation = 10.0
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="VehicleWheel3D5" unique_id=1614534325]
-transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
-material_override = SubResource("StandardMaterial3D_3mrxu")
-mesh = SubResource("CylinderMesh_g4v7s")
-skeleton = NodePath("../../VehicleWheel3D2")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=25385887]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, 0)
+shape = SubResource("CapsuleShape3D_gato")
 
 [node name="Gato" parent="." unique_id=1077939918 instance=ExtResource("3_50v30")]
-transform = Transform3D(-8.742278e-08, 0, -2, 0, 2, 0, 2, 0, -8.742278e-08, 0, 0.5, 0)
+transform = Transform3D(-8.742278e-08, 0, -2, 0, 2, 0, 2, 0, -8.742278e-08, 0, 0, 0)
 
 [node name="Label3D" type="Label3D" parent="." unique_id=1992258466]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
 billboard = 1
 text = "Gato"
 font_size = 60
