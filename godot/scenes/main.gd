@@ -23,7 +23,7 @@ func _ready() -> void:
 		player_inst.name = str(player_data.id)
 		players.add_child(player_inst)
 		player_inst.setup(player_data)
-		player_inst.global_position = spawn_points.get_child(i).global_position
+		player_inst.global_transform = spawn_points.get_child(i).global_transform
 
 		player_inst.last_checkpoint = checkpoints.get_child(
 			checkpoints.get_child_count() - 1

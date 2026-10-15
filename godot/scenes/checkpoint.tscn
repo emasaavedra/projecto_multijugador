@@ -9,6 +9,5 @@ size = Vector3(2, 2, 2)
 script = ExtResource("1_yyywg")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1662987702]
-shape = SubResource("BoxShape3D_g4v7s")
+shape = SubResource("SphereShape3D_g4v7s")
 debug_color = Color(1.0578071, 0.8526451, 0.22137704, 1)
-

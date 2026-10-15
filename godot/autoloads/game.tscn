@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c8lsyb801m532" path="res://autoloads/game.gd" id="1_fmbhi"]
 [ext_resource type="Script" uid="uid://bnqpng0o60r43" path="res://scripts/player_data_resource.gd" id="2_xaonh"]
-[ext_resource type="PackedScene" uid="uid://b5o0q2ow2pp2u" path="res://scenes/main.tscn" id="3_du0e2"]
+[ext_resource type="PackedScene" path="res://pistas/alameda/main_alameda.tscn" id="3_du0e2"]
 
 [sub_resource type="Resource" id="Resource_nviqh"]
 script = ExtResource("2_xaonh")
