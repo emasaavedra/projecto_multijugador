@@ -7,6 +7,9 @@ extends RefCounted
 
 enum Tipo { NINGUNO, CHURU, TRIPLE_CHURU, BIP, PEPINO }
 
+## PRUEBAS: si no es NINGUNO, todas las cajas dan este ítem. Volver a Tipo.NINGUNO antes de commitear.
+const ITEM_DE_PRUEBA: Tipo = Tipo.NINGUNO
+
 const ICONOS: Dictionary = {
 	Tipo.CHURU: preload("res://assets/items/churu.png"),
 	Tipo.TRIPLE_CHURU: preload("res://assets/items/triple_churu.png"),
@@ -33,6 +36,8 @@ const PESOS: Dictionary = {
 
 ## posicion: 0 = primer lugar. total: cantidad de jugadores.
 static func sortear(posicion: int, total: int, rng: RandomNumberGenerator) -> Tipo:
+	if ITEM_DE_PRUEBA != Tipo.NINGUNO:
+		return ITEM_DE_PRUEBA
 	# 0.0 = va primero, 1.0 = va último. Jugando solo se usa la mitad para ver de todo.
 	var avance: float = 0.5 if total <= 1 else float(posicion) / float(total - 1)
 	var pesos: Dictionary = {}

@@ -16,3 +16,6 @@ mono_crash.*.json
 
 # Archivos temporales del editor de Godot
 *.tmp
+
+# Respaldos automáticos de Blender
+*.blend1
