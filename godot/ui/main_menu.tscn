@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://bwgdrcgopd0s1" path="res://lobby/lobby_theme.tres" id="1_3qnx1"]
 [ext_resource type="Script" uid="uid://cnbk17iq1x68f" path="res://ui/main_menu.gd" id="2_p6ygj"]
-[ext_resource type="Texture2D" uid="uid://tw8t38ns0seh" path="res://icon.svg" id="2_xllby"]
+[ext_resource type="Texture2D" uid="uid://bjtky3ty23rvl" path="res://resources/d1WawNY.jpg" id="3_wk0pr"]
 
 [node name="MainMenu" type="Control" unique_id=90432305]
 layout_mode = 3
@@ -70,7 +70,7 @@ grow_vertical = 2
 [node name="TextureRect" type="TextureRect" parent="MarginContainer2" unique_id=389958185]
 custom_minimum_size = Vector2(256, 256)
 layout_mode = 2
-texture = ExtResource("2_xllby")
+texture = ExtResource("3_wk0pr")
 
 [node name="MarginContainer3" type="MarginContainer" parent="." unique_id=658664263]
 layout_mode = 1
@@ -89,4 +89,4 @@ grow_vertical = 2
 [node name="Label" type="Label" parent="MarginContainer3" unique_id=1435848050]
 layout_mode = 2
 theme_type_variation = &"Title"
-text = "Multiplayer Example"
+text = "Mishi-o Kart Santiago"
