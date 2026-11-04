@@ -4,6 +4,7 @@ extends CanvasLayer
 const PLAYER_LAPS: PackedScene = preload("uid://blfte43wsa14n")
 const TAMANO_CASILLA: float = 96.0
 @onready var player_laps_container: VBoxContainer = %PlayerLapsContainer
+@onready var mancha_screen: TextureRect = $ManchaScreen 
 
 var _icono_item: TextureRect
 var _usos_item: Label
@@ -38,3 +39,21 @@ func _crear_casilla_item() -> void:
 func mostrar_item(tipo: Items.Tipo, usos: int) -> void:
 	_icono_item.texture = Items.ICONOS.get(tipo)
 	_usos_item.text = "x%d" % usos if usos > 1 else ""
+	
+	
+	
+
+func mostrar_mancha(duracion: float = 4.0) -> void:
+	if not mancha_screen:
+		return
+		
+	mancha_screen.show()
+	mancha_screen.modulate.a = 1.0 # Opacidad completa inicial
+	
+	# Transición suave desvaneciendo el canal Alfa hasta 0 en el tiempo fijado
+	var tween := create_tween()
+	tween.tween_property(mancha_screen, "modulate:a", 0.0, duracion).set_trans(Tween.TRANS_LINEAR)
+	
+	await tween.finished
+	mancha_screen.hide()
+	mancha_screen.modulate.a = 1.0 # Resetear la opacidad para proximo debuff...

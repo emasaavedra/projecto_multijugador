@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://c1hlwoamy4tnv"]
+
+[ext_resource type="Script" uid="uid://wkajw875sy4p" path="res://scripts/lana.gd" id="1_lana"]
+[ext_resource type="Texture2D" uid="uid://be8sri6i50rsa" path="res://assets/items/lana.png" id="2_k2b62"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_lana"]
+radius = 0.7
+
+[node name="Lana" type="Area3D" unique_id=524279481]
+script = ExtResource("1_lana")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=976607522]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+shape = SubResource("SphereShape3D_lana")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1534636268]
+transform = Transform3D(0.11153745, 0, 0, 0, 0.1366729, 0, 0, 0, 0.1513672, 0, 0.75387406, 0)
+pixel_size = 0.005
+billboard = 2
+texture = ExtResource("2_k2b62")

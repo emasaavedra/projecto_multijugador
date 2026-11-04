@@ -1,6 +1,7 @@
 extends Node3D
 
 const PEPINO: PackedScene = preload("res://scenes/pepino.tscn")
+const LANA: PackedScene = preload("res://scenes/lana.tscn")
 
 @export var player_scene: PackedScene
 @onready var spawn_points: Node3D = $SpawnPoints
@@ -16,6 +17,7 @@ var _race_finished: bool = false
 var _pepinos_creados: int = 0
 var _proyectiles: Node3D
 var _tiempo_posiciones: float = 0.0
+var _lanas_creadas: int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -109,3 +111,33 @@ func spawn_pepino(nombre: String, posicion: Vector3, dueno: int) -> void:
 	pepino.dueno_id = dueno
 	_proyectiles.add_child(pepino)
 	pepino.global_position = posicion
+	
+@rpc("any_peer", "call_local", "reliable")
+func request_lana(posicion: Vector3, direccion: Vector3) -> void:
+	if not multiplayer.is_server():
+		return
+	_lanas_creadas += 1
+	spawn_lana.rpc("Lana%d" % _lanas_creadas, posicion, direccion, multiplayer.get_remote_sender_id())
+
+@rpc("authority", "call_local", "reliable")
+func spawn_lana(nombre: String, posicion: Vector3, direccion: Vector3, dueno: int) -> void:
+	var lana: Lana = LANA.instantiate()
+	lana.name = nombre
+	lana.dueno_id = dueno
+	lana.direccion = direccion
+	_proyectiles.add_child(lana)
+	lana.global_position = posicion
+	
+	# PULPITO (MILK-CAT)
+
+@rpc("any_peer", "call_local", "reliable")
+func request_mancha() -> void:
+	if not multiplayer.is_server():
+		return
+	var lanzador_id: int = multiplayer.get_remote_sender_id()
+	
+	# Envía el debuff a la pantalla de todos los jugadores EXCEPTO el lanzador
+	for player: Auto in players.get_children():
+		var target_id: int = player.get_multiplayer_authority()
+		if target_id != lanzador_id:
+			player.recibir_debuff_mancha.rpc_id(target_id, 5.0)

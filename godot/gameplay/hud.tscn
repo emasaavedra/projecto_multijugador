@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cip8j88jwyjol"]
 
 [ext_resource type="Script" uid="uid://cckq81jm05uuh" path="res://scripts/hud.gd" id="1_eky44"]
+[ext_resource type="Texture2D" uid="uid://c28fes7fahwmq" path="res://assets/items/milk-cat-cat.png" id="2_dwyio"]
 
 [node name="HUD" type="CanvasLayer" unique_id=191410234]
 script = ExtResource("1_eky44")
@@ -24,3 +25,18 @@ layout_mode = 2
 [node name="PlayerLapsContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer" unique_id=1688761614]
 unique_name_in_owner = true
 layout_mode = 2
+
+[node name="ManchaScreen" type="TextureRect" parent="." unique_id=78293671]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -249.0
+offset_top = -249.0
+offset_right = 249.0
+offset_bottom = 249.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_dwyio")

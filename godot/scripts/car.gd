@@ -217,6 +217,18 @@ func usar_item() -> void:
 			if carrera:
 				# Se deja detrás del gato (el frente es +Z)
 				carrera.request_pepino.rpc_id(1, global_position - global_basis.z * 2.5)
+		Items.Tipo.LANA:
+			var carrera: Node = get_tree().get_first_node_in_group("carrera")
+			if carrera:
+				# Instancia 2.5m adelante y 0.5m elevado respecto al auto
+				var pos_salida: Vector3 = global_position + global_basis.z * 2.5 + Vector3(0, 0.5, 0)
+				var dir_disparo: Vector3 = global_basis.z.normalized()
+				carrera.request_lana.rpc_id(1, pos_salida, dir_disparo)
+		
+		Items.Tipo.MANCHA:
+			var carrera: Node = get_tree().get_first_node_in_group("carrera")
+			if carrera:
+				carrera.request_mancha.rpc_id(1)
 	usos_item -= 1
 	if usos_item <= 0:
 		item = Items.Tipo.NINGUNO
@@ -234,7 +246,7 @@ func recibir_item(tipo: Items.Tipo) -> void:
 	usos_item = Items.USOS.get(tipo, 1)
 	item_cambiado.emit(item, usos_item)
 
-## Pisó un pepino o lo atropelló un micro. Se ejecuta en el dueño de este gato.
+## Pisó un pepino, lo atropelló un micro o recibio una lana. Se ejecuta en el dueño de este gato.
 @rpc("any_peer", "call_local", "reliable")
 func recibir_golpe() -> void:
 	if not is_multiplayer_authority():
@@ -247,6 +259,16 @@ func recibir_golpe() -> void:
 	speed = minf(speed, max_speed * 0.3)
 	velocity.y = jump_force * 0.6
 	_mostrar_golpe.rpc(susto_duracion, invulnerable_duracion)
+	
+@rpc("any_peer", "call_local", "reliable") # server envia el debuff
+func recibir_debuff_mancha(duracion: float = 5.0) -> void:
+	if not is_multiplayer_authority():
+		return
+	if _micro_tiempo > 0.0 or _invulnerable_tiempo > 0.0:
+		return
+		
+	if hud and hud.has_method("mostrar_mancha"):
+		hud.mostrar_mancha(duracion)
 
 ## El servidor avisa la posición en la carrera
 @rpc("any_peer", "call_local", "unreliable_ordered")
