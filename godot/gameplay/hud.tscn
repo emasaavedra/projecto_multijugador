@@ -40,3 +40,20 @@ offset_bottom = 249.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_dwyio")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1948267889]
+offset_left = 35.0
+offset_top = 488.0
+offset_right = 236.0
+offset_bottom = 695.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=743124347]
+handle_input_locally = false
+size = Vector2i(200, 200)
+render_target_update_mode = 4
+
+[node name="minimapCamera" type="Camera3D" parent="SubViewportContainer/SubViewport" unique_id=851532874]
+transform = Transform3D(1, 0, 0, 0, -0.011593245, 0.9999328, 0, -0.9999328, -0.011593245, 0, 683.052, 0)
+cull_mask = 1047555
+projection = 1
+size = 500.0

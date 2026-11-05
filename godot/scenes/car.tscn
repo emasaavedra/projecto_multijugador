@@ -7,8 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://budii14r7hwxc" path="res://ui/victory_screen.tscn" id="6_cp117"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gato"]
-radius = 0.5
 height = 1.1
+
+[sub_resource type="SphereMesh" id="SphereMesh_dwyio"]
 
 [node name="Car" type="CharacterBody3D" unique_id=1187559516]
 script = ExtResource("1_yjkmi")
@@ -36,5 +37,11 @@ spring_length = 3.0
 
 [node name="Camera3D" type="Camera3D" parent="SpringArm3D" unique_id=1300481877]
 transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
+cull_mask = 1047553
 
 [node name="VictoryScreen" parent="." unique_id=1066533734 instance=ExtResource("6_cp117")]
+
+[node name="MinimapIcon" type="MeshInstance3D" parent="." unique_id=1881056367]
+transform = Transform3D(40, 0, 0, 0, 40, 0, 0, 0, 40, 0, 5, 0)
+layers = 2
+mesh = SubResource("SphereMesh_dwyio")
