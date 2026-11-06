@@ -37,6 +37,7 @@ func _ready() -> void:
 		players.add_child(player_inst)
 		player_inst.setup(player_data)
 		player_inst.global_transform = spawn_points.get_child(i).global_transform
+		player_data.player = player_inst
 
 		player_inst.last_checkpoint = checkpoints.get_child(
 			checkpoints.get_child_count() - 1

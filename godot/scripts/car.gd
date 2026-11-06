@@ -86,7 +86,7 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("test") and is_multiplayer_authority():
 		test.rpc()
-		rayito_effect()
+		rpc_rayito_effect.rpc()
 
 func setup(player_data: Statics.PlayerData) -> void:
 	label_3d.text = player_data.name
@@ -227,6 +227,8 @@ func usar_item() -> void:
 				var pos_salida: Vector3 = global_position + global_basis.z * 2.5 + Vector3(0, 0.5, 0)
 				var dir_disparo: Vector3 = global_basis.z.normalized()
 				carrera.request_lana.rpc_id(1, pos_salida, dir_disparo)
+		Items.Tipo.RAYITO:
+			rpc_rayito_effect.rpc() #no se si esta wea funcione
 		
 		Items.Tipo.MANCHA:
 			var carrera: Node = get_tree().get_first_node_in_group("carrera")
@@ -356,4 +358,6 @@ func rayito_effect() -> void:
 	
 @rpc("authority", "call_local", "reliable")
 func rpc_rayito_effect() -> void:
-	rayito_effect()
+	for player_data: Statics.PlayerData in Game.players:
+		if not player_data.player == self:
+			player_data.player.rayito_effect()

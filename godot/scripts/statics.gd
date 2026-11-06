@@ -37,6 +37,7 @@ class PlayerData:
 	var index: int = -1
 	var role: Role
 	var vote: bool = false
+	var player: Auto
 	var checkpoints: int:
 		set(value):
 			checkpoints = value

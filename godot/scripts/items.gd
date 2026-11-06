@@ -5,7 +5,7 @@ extends RefCounted
 ## los que van adelante reciben ítems débiles y los de atrás los más fuertes,
 ## así quien se queda atrás (por ejemplo, por pisar un pepino) siempre puede alcanzar.
 
-enum Tipo { NINGUNO, CHURU, TRIPLE_CHURU, BIP, PEPINO, LANA, MANCHA }
+enum Tipo { NINGUNO, CHURU, TRIPLE_CHURU, BIP, PEPINO, LANA, MANCHA, RAYITO }
 
 ## PRUEBAS: si no es NINGUNO, todas las cajas dan este ítem. Volver a Tipo.NINGUNO antes de commitear.
 const ITEM_DE_PRUEBA: Tipo = Tipo.NINGUNO
@@ -17,6 +17,7 @@ const ICONOS: Dictionary = {
 	Tipo.PEPINO: preload("res://assets/items/pepino.png"),
 	Tipo.LANA: preload("res://assets/items/lana.png"),
 	Tipo.MANCHA: preload("res://assets/items/milk-cat-cat.png"),
+	Tipo.RAYITO: preload("res://assets/items/gato_estatica.png")
 }
 
 ## Cuántas veces se puede usar cada ítem
@@ -27,6 +28,7 @@ const USOS: Dictionary = {
 	Tipo.PEPINO: 1,
 	Tipo.LANA: 1,
 	Tipo.MANCHA: 1,
+	Tipo.RAYITO: 1
 }
 
 ## Probabilidad relativa de cada ítem para [primer lugar, mitad, último lugar]
@@ -37,6 +39,7 @@ const PESOS: Dictionary = {
 	Tipo.PEPINO: [55.0, 30.0, 15.0],
 	Tipo.LANA: [30.0, 40.0, 25.0],
 	Tipo.MANCHA: [100.0, 20.0, 30.0],
+	Tipo.RAYITO: []
 }
 
 
