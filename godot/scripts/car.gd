@@ -7,6 +7,7 @@ class_name Auto
 signal item_cambiado(tipo: Items.Tipo, usos: int)
 
 const GATO_MICRO: PackedScene = preload("res://scenes/gato_micro.tscn")
+@onready var gato_modelo: Node3D = $Gato
 
 @export var max_speed: float = 22.0
 @export var reverse_speed: float = 7.0
@@ -321,3 +322,31 @@ func send_data(pos: Vector3, rot: Vector3, new_speed: float) -> void:
 func write_winner(winner: String) -> void:
 	victory_screen.winner_label.text = winner
 	victory_screen.show()
+	
+func rayito_effect() -> void:
+	# aqui deberia activarse la animación del rayito
+	var tween: Tween = create_tween()
+	var duracion: float = 1.0
+	tween.parallel().tween_property(
+		gato_modelo,
+		"rotation:y",
+		rotation.y + deg_to_rad(720),
+		duracion
+	)
+	
+	tween.parallel().tween_property(
+		gato_modelo,
+		"scale",
+		Vector3(0.5, 0.5, 0.5),
+		duracion)
+	tween.tween_interval(5.0)
+	tween.tween_property(
+		gato_modelo,
+		"scale",
+		Vector3.ONE,
+		1.0
+	).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	
+@rpc("authority", "call_local", "reliable")
+func rpc_rayito_effect() -> void:
+	rayito_effect()

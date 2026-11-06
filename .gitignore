@@ -19,3 +19,4 @@ mono_crash.*.json
 
 # Respaldos automáticos de Blender
 *.blend1
+/godot/builds
