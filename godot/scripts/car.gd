@@ -8,6 +8,7 @@ signal item_cambiado(tipo: Items.Tipo, usos: int)
 
 const GATO_MICRO: PackedScene = preload("res://scenes/gato_micro.tscn")
 @onready var gato_modelo: Node3D = $Gato
+@onready var rotation_modelo: float = gato_modelo.rotation.y
 
 @export var max_speed: float = 22.0
 @export var reverse_speed: float = 7.0
@@ -85,6 +86,7 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("test") and is_multiplayer_authority():
 		test.rpc()
+		rayito_effect()
 
 func setup(player_data: Statics.PlayerData) -> void:
 	label_3d.text = player_data.name
@@ -327,10 +329,11 @@ func rayito_effect() -> void:
 	# aqui deberia activarse la animación del rayito
 	var tween: Tween = create_tween()
 	var duracion: float = 1.0
+	var cooldown: float = 5.0
 	tween.parallel().tween_property(
 		gato_modelo,
 		"rotation:y",
-		rotation.y + deg_to_rad(720),
+		rotation_modelo + deg_to_rad(720),
 		duracion
 	)
 	
@@ -339,13 +342,17 @@ func rayito_effect() -> void:
 		"scale",
 		Vector3(0.5, 0.5, 0.5),
 		duracion)
-	tween.tween_interval(5.0)
+
+	tween.tween_interval(cooldown)
+
 	tween.tween_property(
 		gato_modelo,
 		"scale",
-		Vector3.ONE,
+		Vector3(2.0, 2.0, 2.0),
 		1.0
 	).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	await tween.finished
+	gato_modelo.rotation.y = rotation_modelo
 	
 @rpc("authority", "call_local", "reliable")
 func rpc_rayito_effect() -> void:
