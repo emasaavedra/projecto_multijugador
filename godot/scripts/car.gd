@@ -70,8 +70,7 @@ func _ready() -> void:
 	add_to_group("jugadores")
 	var player_data: Statics.PlayerData = Game.instance.get_player(get_multiplayer_authority())
 	label_3d.text = player_data.name
-	#hud.visible = is_multiplayer_authority()
-	hud.visible = true
+	hud.visible = is_multiplayer_authority()
 	victory_screen.hide()
 	# Que la cámara no choque con el propio gato
 	spring_arm_3d.add_excluded_object(get_rid())

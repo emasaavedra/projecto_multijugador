@@ -20,3 +20,16 @@ mono_crash.*.json
 # Respaldos automáticos de Blender
 *.blend1
 /godot/builds
+
+# Modelos pesados que no se usan en el juego (cada uno se los baja por su cuenta)
+/godot/cata/building.glb*
+/godot/cata/building_*
+/godot/cata/buildings.glb*
+/godot/cata/buildings_*
+/godot/cata/city_building*
+/godot/cata/procedural_tree_generator*
+/godot/cata/gato_en_pie*
+/godot/cata/low_poly_tree_assets_1*
+
+# Archivos comprimidos
+*.zip

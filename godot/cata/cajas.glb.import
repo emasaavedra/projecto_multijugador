@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://0brlaxs1jdij"
-path="res://.godot/imported/GatoMicro2.glb-97721de9739520ef65cd2fdf1f06e185.scn"
+uid="uid://ccufhg16jnac1"
+path="res://.godot/imported/cajas.glb-f2622b2883b537d349ee6902e75e84cd.scn"
 
 [deps]
 
-source_file="res://cata/GatoMicro2.glb"
-dest_files=["res://.godot/imported/GatoMicro2.glb-97721de9739520ef65cd2fdf1f06e185.scn"]
+source_file="res://cata/cajas.glb"
+dest_files=["res://.godot/imported/cajas.glb-f2622b2883b537d349ee6902e75e84cd.scn"]
 
 [params]
 

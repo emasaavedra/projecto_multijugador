@@ -39,7 +39,7 @@ const PESOS: Dictionary = {
 	Tipo.PEPINO: [55.0, 30.0, 15.0],
 	Tipo.LANA: [30.0, 40.0, 25.0],
 	Tipo.MANCHA: [100.0, 20.0, 30.0],
-	Tipo.RAYITO: []
+	Tipo.RAYITO: [0.0, 10.0, 25.0],
 }
 
 
