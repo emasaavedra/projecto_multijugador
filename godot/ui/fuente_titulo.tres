@@ -1,0 +1,8 @@
+[gd_resource type="FontVariation" format=3]
+
+[ext_resource type="FontFile" path="res://resources/font/Daydream DEMO.otf" id="1_daydream"]
+[ext_resource type="FontFile" path="res://resources/font/Minecraftia-Regular.ttf" id="2_minecraftia"]
+
+[resource]
+fallbacks = Array[Font]([ExtResource("2_minecraftia")])
+base_font = ExtResource("1_daydream")

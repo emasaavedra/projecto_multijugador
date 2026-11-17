@@ -15,7 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="multiplayer_example"
-run/main_scene="res://ui/main_menu.tscn"
+run/main_scene="res://ui/main_menu_bonito.tscn"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
